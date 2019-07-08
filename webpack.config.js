@@ -1,6 +1,7 @@
 const path = require('path');
 const globby = require('globby');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 
 module.exports = (env, argv) => ({
   entry: {
@@ -23,6 +24,11 @@ module.exports = (env, argv) => ({
     new MiniCssExtractPlugin({
       filename: 'public/css/style.bundle.css',
       chunkFilename: 'public/css/[id].bundle.css',
+    }),
+    new BrowserSyncPlugin({
+      host: 'localhost',
+      port: 3000,
+      server: { baseDir: ['public'] }
     })
   ],
   module: {
