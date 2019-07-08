@@ -9,3 +9,4 @@ node_modules
 
 # Compiled files
 public
+dependencyGraph.json
