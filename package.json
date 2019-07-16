@@ -1,0 +1,48 @@
+{
+  "name": "portland-pattern-lab",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "pl:install": "patternlab install --config ./patternlab-config.json",
+    "pl:dev": "patternlab serve --config ./patternlab-config.json",
+    "pl:build": "patternlab build --config ./patternlab-config.json",
+    "webpack:dev": "webpack --mode development --watch",
+    "webpack:build": "webpack --mode production --no-progress",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eGovPDX/portland-pattern-lab.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eGovPDX/portland-pattern-lab/issues"
+  },
+  "homepage": "https://github.com/eGovPDX/portland-pattern-lab#readme",
+  "dependencies": {
+    "@pattern-lab/cli": "^0.0.3",
+    "@pattern-lab/core": "^3.0.1",
+    "@pattern-lab/engine-twig-php": "^3.0.1",
+    "@pattern-lab/starterkit-twig-demo": "^4.1.1",
+    "@pattern-lab/uikit-workshop": "^1.0.1"
+  },
+  "devDependencies": {
+    "autoprefixer": "^9.6.0",
+    "babel-loader": "^8.0.6",
+    "browser-sync-webpack-plugin": "^2.2.2",
+    "css-loader": "^3.0.0",
+    "cssnano": "^4.1.10",
+    "globby": "^10.0.1",
+    "html-webpack-plugin": "^3.2.0",
+    "import-glob-loader": "^1.1.0",
+    "mini-css-extract-plugin": "^0.7.0",
+    "node-sass": "^4.12.0",
+    "postcss-loader": "^3.0.0",
+    "sass-loader": "^7.1.0",
+    "webpack": "^4.35.2",
+    "webpack-cli": "^3.3.5"
+  }
+}

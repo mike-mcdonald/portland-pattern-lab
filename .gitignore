@@ -1,0 +1,12 @@
+# IDE folders
+.vscode
+
+# Mac OS X Finder
+.DS_Store
+
+# Node dependencies
+node_modules
+
+# Compiled files
+public
+dependencyGraph.json
