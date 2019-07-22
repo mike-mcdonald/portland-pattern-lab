@@ -2,15 +2,15 @@ version: '3'
 services:
   webpack:
     build: .
-    command: npm run webpack:dev
+    command: webpack:dev
     volumes:
-      - .:/usr/app/
-      - /usr/app/node_modules
+      - .:/usr/local/patternlab/
+      - /usr/local/patternlab/node_modules/
   patternlab:
     build: .
-    command: npm run pl:dev
+    command: pl:dev
     ports:
       - 3000:3000
     volumes:
-      - .:/usr/app/
-      - /usr/app/node_modules
+      - .:/usr/local/patternlab/
+      - /usr/local/patternlab/node_modules/
