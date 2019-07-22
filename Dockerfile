@@ -2,6 +2,8 @@ FROM php:7.3-cli
 
 ENV NODE_VERSION 12.6.0
 
+ENV PATTERNLAB_HOME /usr/local/patternlab
+
 # build deps
 RUN set -eux; \
 	apt-get update; \
@@ -47,10 +49,8 @@ RUN ARCH= && dpkgArch="$(dpkg --print-architecture)" \
   && rm "node-v$NODE_VERSION-linux-$ARCH.tar.xz" SHASUMS256.txt.asc SHASUMS256.txt \
   && ln -s /usr/local/bin/node /usr/local/bin/nodejs
 
-WORKDIR /usr/app
+WORKDIR ${PATTERNLAB_HOME}
 
-COPY . .
+COPY ./script/docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
 
-RUN npm install --quiet
-
-RUN npm rebuild node-sass
+ENTRYPOINT ["/bin/bash", "/usr/local/bin/docker-entrypoint.sh"]
