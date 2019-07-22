@@ -5,7 +5,9 @@
 .DS_Store
 
 # Node dependencies
-node_modules
+/.npm/
+/.config/
+/**/node_modules/
 
 # Compiled files
 public
