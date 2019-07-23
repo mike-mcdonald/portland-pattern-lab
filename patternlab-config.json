@@ -163,20 +163,6 @@
           ]
         },
         {
-          "id": "templates",
-          "recursive": true,
-          "paths": [
-            "source/_patterns/03-templates"
-          ]
-        },
-        {
-          "id": "pages",
-          "recursive": true,
-          "paths": [
-            "source/_patterns/04-pages"
-          ]
-        },
-        {
           "id": "macros",
           "recursive": true,
           "paths": [
