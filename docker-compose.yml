@@ -5,7 +5,6 @@ services:
     command: webpack:dev
     volumes:
       - .:/usr/local/patternlab/
-      - /usr/local/patternlab/node_modules/
   patternlab:
     build: .
     command: pl:dev
@@ -13,4 +12,3 @@ services:
       - 3000:3000
     volumes:
       - .:/usr/local/patternlab/
-      - /usr/local/patternlab/node_modules/

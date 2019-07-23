@@ -1,6 +1,6 @@
 FROM php:7.3-cli
 
-ENV NODE_VERSION 12.6.0
+ENV NODE_VERSION 10.16.0
 
 ENV PATTERNLAB_HOME /usr/local/patternlab
 
@@ -50,6 +50,10 @@ RUN ARCH= && dpkgArch="$(dpkg --print-architecture)" \
   && ln -s /usr/local/bin/node /usr/local/bin/nodejs
 
 WORKDIR ${PATTERNLAB_HOME}
+
+COPY ./package.json package.json
+
+RUN npm install --quiet
 
 COPY ./script/docker-entrypoint.sh /usr/local/bin/docker-entrypoint.sh
 
