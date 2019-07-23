@@ -1,0 +1,7 @@
+ul {
+    @apply list-disc list-inside;
+    
+    ul {
+        @apply ml-4;
+    }
+}
