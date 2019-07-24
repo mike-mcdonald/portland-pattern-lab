@@ -1,15 +1,14 @@
 {
     "colors": [
         "gray",
-        "red",
+        "cyan",
         "orange",
-        "yellow",
+        "red",
         "green",
-        "teal",
         "blue",
-        "indigo",
-        "purple",
-        "pink"
+        "marine",
+        "tangerine",
+        "fog"
     ],
     "weights": [
         100,
