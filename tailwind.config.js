@@ -67,6 +67,7 @@ module.exports = {
     colors: {
       transparent: 'transparent',
       inherit: 'inherit',
+      current: 'currentColor',
       black: '#22292f',
       white: '#ffffff',
       gray: {
@@ -91,6 +92,8 @@ module.exports = {
     },
     extend: {}
   },
-  variants: {},
+  variants: {
+    borderWidth: ['responsive', 'hover', 'focus']
+  },
   plugins: []
 }
