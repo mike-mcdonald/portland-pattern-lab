@@ -1,0 +1,16 @@
+{% set items = items|default([
+	"Grandparent",
+	"Parent",
+	"Child",
+	"Grandchild",
+	"Great-Granchild",
+]) %}
+<ul class="flex flex-wrap items-center list-none my-3">
+
+	{% for item in items %}
+		<li><a href="{{ url }}">{{ item }}</a></li>
+		{% if not loop.last %}
+			<span class="mx-2 text-gray-600">></span>
+		{% endif %}
+	{% endfor %}
+</ul>
