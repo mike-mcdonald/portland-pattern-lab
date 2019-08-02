@@ -1,0 +1,27 @@
+<!-- Begin .header -->
+<header class="header flex items-center bg-cyan-500 text-white p-4" role="banner">
+	{% set logo %}
+	{% include "@atoms/04-images/00-logo.twig" with {
+		"classes": [
+			"w-24"
+		]
+	} only %}
+	{% endset %}
+	{% include "@atoms/02-text/_link.twig" with {
+		"url": "#",
+		"content": logo,
+		"classes": [
+			"border-0",
+			"mr-3"
+		]
+	} %}
+	{% include "@atoms/02-text/_link.twig" with {
+		"url": "#",
+		"content": "Transportation System Plan",
+		"classes": [
+			"border-0",
+			"mr-3"
+		]
+	} %}
+</header>
+<!-- End .header -->

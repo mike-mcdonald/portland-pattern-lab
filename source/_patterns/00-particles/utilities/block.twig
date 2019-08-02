@@ -1,0 +1,5 @@
+{% set classes = classes|default([
+    "h-48",
+    "bg-fog-500",
+]) %}
+<div class="{{ classes|join(' ') }}">{{ content }}</div>

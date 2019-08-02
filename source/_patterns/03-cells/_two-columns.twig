@@ -1,0 +1,31 @@
+{% set wrapperClasses = wrapperClasses|default([
+    "flex",
+    "flex-col",
+    "lg:flex-row",
+    "-mx-2",
+])%}
+
+{% set firstClasses = firstClasses|default([
+    "w-full",
+    "lg:w-1/2",
+    "px-2"
+]) %}
+
+{% set secondClasses = secondClasses|default([
+    "w-full",
+    "lg:w-1/2",
+    "px-2"
+]) %}
+
+<section class="{{ wrapperClasses|join(' ') }}">
+    <div class="{{ firstClasses|join(' ') }}">
+        {% block first %}
+            {{ firstContent }}
+        {% endblock %}
+    </div>
+    <div class="{{ firstClasses|join(' ') }}">
+        {% block second %}
+            {{ secondContent }}
+        {% endblock %}
+    </div>
+</section>

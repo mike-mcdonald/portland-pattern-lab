@@ -1,0 +1,27 @@
+<div>
+    {% embed "@cells/_two-columns.twig" with {
+        "wrapperClasses": [
+            "flex",
+            "flex-col",
+            "lg:flex-row",
+            "-mx-2",
+            "my-3",
+        ]
+    } %}
+        {% block first %}
+            <h1>Project name</h1>
+            {% include "@molecules/text/lead-paragraph.twig" %}
+        {% endblock %}
+        {% block second %}
+            {% include "@particles/utilities/block.twig" with {
+                "classes": [
+                    "h-64",
+                    "lg:h-full",
+                    "bg-fog-600",
+                ],
+                "content": "Second column"
+            } only %}
+        {% endblock %}
+    {% endembed %}
+</div>
+{% include "@atoms/02-text/01-paragraph.twig" %}

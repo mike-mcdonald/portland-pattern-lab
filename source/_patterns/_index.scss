@@ -1,1 +1,5 @@
-@import "./00-atoms/index";
+@tailwind base;
+@tailwind components;
+@import "./00-particles/_index.scss";
+@import "./01-atoms/_index.scss";
+@tailwind utilities;

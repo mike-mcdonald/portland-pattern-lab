@@ -1,0 +1,9 @@
+a {
+    @apply no-underline text-inherit border-b-2 border-current;
+    &:focus {
+        @apply border-2;
+    }
+    &.button {
+        @apply mx-1;
+    }
+}
