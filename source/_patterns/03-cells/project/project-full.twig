@@ -13,10 +13,9 @@
             {% include "@molecules/text/lead-paragraph.twig" %}
         {% endblock %}
         {% block second %}
-            {% include "@particles/utilities/block.twig" with {
+            {% include "@cells/map/map.twig" with {
                 "classes": [
-                    "h-64",
-                    "lg:h-full",
+                    "h-screen-32",
                     "bg-fog-600",
                 ],
                 "content": "Second column"
