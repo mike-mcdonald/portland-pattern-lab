@@ -1,1 +1,6 @@
-<section id="mapid" class="relative"></section>
+{% set classes = classes|default([
+    "h-screen"
+])%}
+<section class="{{ classes|merge(["relative"])|join(' ') }}">
+    <map id="mapid"></map>
+</section>
