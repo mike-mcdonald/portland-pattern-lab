@@ -1,0 +1,16 @@
+{% extends "@cells/_three-columns.twig" %}
+{% block first %}
+    {% include "@particles/utilities/block.twig" with {
+        "content": "First column"
+    } only %}
+{% endblock %}
+{% block second %}
+    {% include "@particles/utilities/block.twig" with {
+        "content": "Second column"
+    } only %}
+{% endblock %}
+{% block third %}
+    {% include "@particles/utilities/block.twig" with {
+        "content": "Third column"
+    } only %}
+{% endblock %}

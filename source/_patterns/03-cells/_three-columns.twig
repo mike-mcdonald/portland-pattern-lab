@@ -1,20 +1,29 @@
 {% set wrapperClasses = wrapperClasses|default([
     "flex",
+    "flex-wrap",
     "flex-col",
-    "lg:flex-row",
+    "md:flex-row",
     "-mx-2",
 ])%}
 
 {% set firstClasses = firstClasses|default([
     "w-full",
-    "lg:w-1/2",
-    "px-2"
+    "md:w-1/2",
+    "lg:w-1/3",
+    "m-2"
 ]) %}
 
 {% set secondClasses = secondClasses|default([
     "w-full",
-    "lg:w-1/2",
-    "px-2"
+    "md:w-1/2",
+    "lg:w-1/3",
+    "m-2"
+]) %}
+
+{% set thirdClasses = thirdClasses|default([
+    "w-full",
+    "lg:w-1/3",
+    "m-2"
 ]) %}
 
 <section class="{{ wrapperClasses|join(' ') }}">
@@ -26,6 +35,11 @@
     <div class="{{ secondClasses|join(' ') }}">
         {% block second %}
             {{ secondContent }}
+        {% endblock %}
+    </div>
+    <div class="{{ thirdClasses|join(' ') }}">
+        {% block third %}
+            {{ thirdContent }}
         {% endblock %}
     </div>
 </section>
