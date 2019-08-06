@@ -1,17 +1,19 @@
 const path = require('path');
 const globby = require('globby');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const ArcGISPlugin = require('@arcgis/webpack-plugin');
 
 module.exports = (env, argv) => ({
   entry: {
-    main: globby.sync(['./source/js/main.js', './source/scss/style.scss'])
+    main: ['./source/_patterns/_index.js', '@dojo/framework/shim/Promise', './source/_patterns/_index.scss']
   },
   devtool: 'source-map',
   mode: process.env.NODE_ENV,
   output: {
-    path: path.resolve(__dirname),
-    filename: 'public/js/[name].bundle.js'
+    path: path.resolve(__dirname, 'public', 'js'),
+    filename: '[name].bundle.js',
+    publicPath: '../../js/'
   },
   watchOptions: {
     ignored: [
@@ -21,18 +23,23 @@ module.exports = (env, argv) => ({
     ]
   },
   plugins: [
-    new MiniCssExtractPlugin({
-      filename: 'public/css/style.bundle.css',
-      chunkFilename: 'public/css/[id].bundle.css',
+    new ArcGISPlugin({
+      useDefaultAssetLoaders: false
     }),
-    new BrowserSyncPlugin({
-      host: 'localhost',
-      port: 3000,
-      server: { baseDir: ['public'] }
-    })
+    new MiniCssExtractPlugin({
+      filename: '../css/style.bundle.css',
+      chunkFilename: '../css/[id].bundle.css',
+    }),
+    new VueLoaderPlugin()
   ],
   module: {
     rules: [
+      {
+        test: /\.vue$/,
+        use: {
+          loader: 'vue-loader'
+        }
+      },
       {
         test: /\.js$/,
         exclude: /node_modules/,
@@ -64,13 +71,34 @@ module.exports = (env, argv) => ({
             }
           },
           {
+            loader: "resolve-url-loader"
+          },
+          {
             loader: 'sass-loader',
             options: {
               sourceMap: true
             }
           }
         ]
+      },
+      {
+        test: /\.wasm$/,
+        type: 'javascript/auto',
+        loader: 'file-loader',
       }
     ]
+  },
+  externals: [
+    (context, request, callback) => {
+      if (/pe-wasm$/.test(request)) {
+        return callback(null, "amd " + request);
+      }
+      callback();
+    }
+  ],
+  node: {
+    process: false,
+    global: false,
+    fs: "empty"
   }
 });

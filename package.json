@@ -28,6 +28,7 @@
     "@pattern-lab/engine-twig-php": "^3.0.1",
     "@pattern-lab/starterkit-twig-demo": "^4.1.1",
     "@pattern-lab/uikit-workshop": "^1.0.1",
+    "@types/arcgis-js-api": "^4.12.0",
     "vue": "^2.6.10",
     "vuex": "^3.1.1"
   },
@@ -46,8 +47,10 @@
     "mini-css-extract-plugin": "^0.7.0",
     "node-sass": "^4.12.0",
     "postcss-loader": "^3.0.0",
+    "resolve-url-loader": "^3.1.0",
     "sass-loader": "^7.1.0",
     "tailwindcss": "^1.0.5",
+    "vue-loader": "^15.7.1",
     "vue-template-compiler": "^2.6.10",
     "webpack": "^4.35.2",
     "webpack-cli": "^3.3.5"
