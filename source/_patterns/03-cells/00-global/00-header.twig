@@ -1,13 +1,12 @@
-<!-- Begin .header -->
-<header class="header flex items-center bg-cyan-500 text-white px-4 h-screen-6" role="banner">
-	{% set logo %}
-	{% include "@atoms/04-images/00-logo.twig" with {
-		"classes": [
-			"w-24"
-		]
-	} only %}
-	{% endset %}
-	{% include "@atoms/02-text/_link.twig" with {
+<header class="flex items-center text-black px-2 h-screen-6" role="banner">
+  {% set logo %}
+  {% include "@atoms/04-images/00-logo.twig" with {
+			"classes": [
+				"w-24"
+			]
+		} only %}
+  {% endset %}
+  {% include "@atoms/02-text/_link.twig" with {
 		"url": "#",
 		"content": logo,
 		"classes": [
@@ -15,7 +14,7 @@
 			"mr-3"
 		]
 	} %}
-	{% include "@atoms/02-text/_link.twig" with {
+  {% include "@atoms/02-text/_link.twig" with {
 		"url": "#",
 		"content": "Streets",
 		"classes": [
@@ -24,4 +23,3 @@
 		]
 	} %}
 </header>
-<!-- End .header -->
