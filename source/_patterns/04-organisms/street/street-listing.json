@@ -1,0 +1,11 @@
+{
+    "candidates": [
+        {
+            "name": "SW MAIN ST",
+            "id": "TP001-1234",
+            "bicycle": "major",
+            "transit": "minor",
+            "emergency": "minor"
+        }
+    ]
+}
