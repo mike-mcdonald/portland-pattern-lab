@@ -21,24 +21,22 @@ const renderer = new SimpleRenderer({
   )
 });
 
-export const layers = [];
-const transitClassLayers = new GroupLayer({
-  id: "tsp-classicifations",
-  title: "Street classifications"
-});
-
-const transitClassURLs = new Set([
+const layerURLs = new Set([
   'https://www.portlandmaps.com/arcgis/rest/services/Public/Transportation_System_Plan/MapServer/1',
   'https://www.portlandmaps.com/arcgis/rest/services/Public/Transportation_System_Plan/MapServer/2',
   'https://www.portlandmaps.com/arcgis/rest/services/Public/Transportation_System_Plan/MapServer/3'
 ]);
 
-for (const classLayer of transitClassURLs) {
-  layer.add(new FeatureLayer(
-    classLayer
-  ));
+export const layer = new GroupLayer(
+  'https://www.portlandmaps.com/arcgis/rest/services/Public/Transportation_System_Plan/MapServer/0'
+);
+
+for (const url of layerURLs) {
+  layer.add(new FeatureLayer({
+    url,
+  }));
 }
 
 export const map = new EsriMap({
-  basemap: "streets-vector"
+  basemap: "streets-navigation-vector"
 });
