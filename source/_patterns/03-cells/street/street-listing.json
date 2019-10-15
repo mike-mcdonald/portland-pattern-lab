@@ -1,0 +1,22 @@
+{
+  "candidates": [
+    {
+      "location": {
+        "x": -1.3654421314E7,
+        "y": 5702752.238
+      },
+      "attributes": {
+        "name": "SW Main St",
+        "tranPlanId": "tp001-1234",
+        "bicycleClassification": "greenway",
+        "transitClassification": "Regional Transitway"
+      },
+      "extent": {
+        "ymin": 5702751.988,
+        "ymax": 5702752.488,
+        "xmin": -1.3654421564E7,
+        "xmax": -1.3654421064E7
+      }
+    }
+  ]
+}

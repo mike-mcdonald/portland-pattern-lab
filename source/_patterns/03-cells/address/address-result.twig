@@ -1,0 +1,14 @@
+{% for candidate in candidates %}
+  <div role="button" href="#" class="p-2 border-2 flex flex-wrap cursor-pointer hover:bg-blue-100">
+    {% if candidate.attributes.type %}
+      <span class="flex items-center flex-initial rounded-full bg-blue-500 text-white uppercase px-2 py-1 text-xs font-bold mx-2">{{ candidate.attributes.type }}</span>
+    {% endif %}
+    <div class="mx-2">{{ candidate.address }}</div>
+    {% if candidate.attributes.city %}
+      <div class="flex flex-1 items-center mx-2">
+        <span class="text-gray-800 uppercase text-xs font-bold">{{ candidate.attributes.city }},</span>
+        <span class="text-gray-800 uppercase text-xs font-bold">{{ candidate.attributes.state }}</span>
+      </div>
+    {% endif %}
+  </div>
+{% endfor %}
