@@ -1,8 +1,33 @@
 {% include "@cells/header/header.twig" %}
 <main>
-  <section class="bg-cyan-500">
-    <img class="mx-auto py-16" src="../../images/tsp-logo-big.png"/>
+  <section class="py-8 bg-cyan-500 text-white">
+    <img class="mx-auto" src="../../images/tsp-logo-big.png"/>
+    {% embed "@cells/_two-columns.twig" with {
+      'wrapperClasses': [
+        "flex",
+        "flex-col",
+        "lg:flex-row",
+        "lg:w-1/2",
+        "mx-auto",
+        "text-white",
+      ]
+    } %}
+      {% block first %}
+        {% include "@molecules/button.twig" with {
+            "color": "blue",
+            "content": "Check out your streets"
+          } %}
+      {% endblock %}
+      {% block second %}
+        {% include "@molecules/button.twig" with {
+            "color": "blue",
+            "content": "Read about our plans"
+          } %}
+      {% endblock %}
+    {% endembed %}
+
   </section>
+
   <section class="container px-2 py-4 mx-auto">
     <h1>
       Portland's Transportation System Plan
