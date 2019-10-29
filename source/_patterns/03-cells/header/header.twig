@@ -1,0 +1,34 @@
+<header class="flex flex-wrap items-center text-black p-2 lg:h-16 border-black border-b" role="banner">
+  {% set logo %}
+  {% include "@atoms/04-images/00-logo.twig" with {
+			"classes": [
+				"w-24"
+			]
+		} only %}
+  {% endset %}
+  {% include "@atoms/02-text/_link.twig" with {
+		"url": "#",
+		"content": logo,
+		"classes": [
+			"border-0",
+			"mr-3"
+		]
+	} %}
+  {% include "@atoms/02-text/_link.twig" with {
+		"url": "#",
+		"content": "Transportation system plan",
+		"classes": [
+			"border-0",
+			"mr-3"
+		]
+	} %}
+  {% include "@molecules/navigation/00-primary-nav.twig" with {
+		"url": "#",
+		"content": "Transportation system plan",
+		"classes": [
+			"border-0",
+			"mr-3"
+		]
+	} %}
+
+</header>
