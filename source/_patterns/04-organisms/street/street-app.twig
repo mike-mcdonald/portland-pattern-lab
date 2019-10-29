@@ -1,39 +1,34 @@
-<main>
-    {% embed "@cells/_two-columns.twig" with {
+{% include "@cells/header/header.twig" %}
+<main class="flex flex-wrap">
+  {% embed "@cells/_two-columns.twig" with {
         'firstClasses' : [
             "w-full",
             "md:w-1/3",
             "p-2",
-            "h-screen-50",
-            "lg:h-screen",
+            "lg:-h-16",
             "overflow-y-auto"
         ],
         'secondClasses' : [
             "w-full",
             "lg:flex-1",
-            "h-screen-50",
-            "lg:h-screen",
+            "h-screen-68",
+            "lg:-h-16",
         ],
-    } only %}
-        {% block first %}
-            {% include "@organisms/street/street-listing.twig" with {
-                "candidates": [
-                    {
-                        "name": "SW MAIN ST",
-                        "id": "TP001-1234",
-                        "bicycle": "major",
-                        "transit": "minor",
-                        "emergency": "minor"
-                    }
-                ]
-            } %}
-        {% endblock %}
-        {% block second %}
-            {% include "@cells/classification/classification-map.twig" with {
+    } %}
+    {% block first %}
+      {% include "@organisms/street/street-listing.twig" with {
+          'id': street.id,
+          'name': street.name,
+          'classification': street.classification,
+          'projects': street.projects
+      } %}
+    {% endblock %}
+    {% block second %}
+      {% include "@cells/classification/classification-map.twig" with {
                 "classes": [
                     "h-full",
                 ]
             } %}
-        {% endblock %}
-    {% endembed %}
+    {% endblock %}
+  {% endembed %}
 </main>
