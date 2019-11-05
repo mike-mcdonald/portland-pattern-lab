@@ -1,79 +1,83 @@
-{% for candidate in candidates %}
-  <article>
-    <h1>{{ candidate.name }}</h1>
+{% set classification_map = {
+  '': '',
+ } %}
+<article>
+  <h1>{{ name }}</h1>
+  <p>{{ block }}
+    block</p>
+  <dl>
     <div class="flex flex-wrap items-center mb-3">
-      <dl>
-        <dt class="font-bold">Transportation planning ID:</dt>
-        <dd class="ml-4">{{ candidate.id }}</dd>
-      </dl>
+      <dt class="font-bold">Transportation planning ID:</dt>
+      <dd class="ml-4">{{ id }}</dd>
     </div>
-    <details open class="border-2 rounded mb-3">
-      <summary class="p-2">Classifications</summary>
-      <dl class="p-2">
-        <div class="flex flex-wrap items-center mb-2">
-          <dt class="font-bold">Bicycle clasification:</dt>
-          <dd class="ml-4">
-            <a href="#">Major City Bikeway</a>
-          </dd>
-        </div>
-        <div class="flex flex-wrap items-center mb-2">
-          <dt class="font-bold">Transit classification:</dt>
-          <dd class="ml-4">
-            <a href="#">Regional Transitway</a>
-          </dd>
-        </div>
-        <div class="flex flex-wrap items-center mb-2">
-          <dt class="font-bold">Street design classification:</dt>
-          <dd class="ml-4">
-            <a href="#">Urban Throughway</a>
-          </dd>
-        </div>
-        <div class="flex flex-wrap items-center mb-2">
-          <dt class="font-bold">Pedestrian classification:</dt>
-          <dd class="ml-4">
-            <a href="#">Off-street Path</a>
-          </dd>
-        </div>
-      </dl>
-    </details>
-    <h2>Projects affecting this street</h2>
-    <ul class="list-none m-0 mb-3">
-      <li>
-        <h3 class="font-bold">1-10 years</h3>
-        <ul class="list-none m-0">
-          <li>
+  </dl>
+  <details open class="border-2 rounded mb-3">
+    <summary class="p-2">Classifications</summary>
+    <dl class="p-2">
+      <div class="flex flex-wrap items-center mb-2">
+        <dt class="font-bold">Bicycle clasification:</dt>
+        <dd class="ml-4">
+          <a href="#">{{ classification.bicycle }}</a>
+        </dd>
+      </div>
+      <div class="flex flex-wrap items-center mb-2">
+        <dt class="font-bold">Transit classification:</dt>
+        <dd class="ml-4">
+          <a href="#">{{ classification.transit }}</a>
+        </dd>
+      </div>
+      <div class="flex flex-wrap items-center mb-2">
+        <dt class="font-bold">Street design classification:</dt>
+        <dd class="ml-4">
+          <a href="#">{{ classification.design }}</a>
+        </dd>
+      </div>
+      <div class="flex flex-wrap items-center mb-2">
+        <dt class="font-bold">Pedestrian classification:</dt>
+        <dd class="ml-4">
+          <a href="#">{{ classification.pedestrian }}</a>
+        </dd>
+      </div>
+    </dl>
+  </details>
+  <h2>Projects affecting this street</h2>
+  <ul class="list-none m-0 mb-3">
+    <li>
+      <ul class="list-none m-0">
+        {% for project in projects %}
+          <li class="my-1">
             <details class="rounded border-2">
-              <summary class="p-2">Bicycle / Rail Safety Improvements</summary>
+              <summary class="p-2">{{ project.name }}</summary>
               <dl class="p-2">
                 <div class="flex flex-wrap items-center mb-2">
                   <dt class="font-bold">Transportation planning ID:</dt>
-                  <dd class="ml-4">TP03-0000065</dd>
+                  <dd class="ml-4">{{ project.id }}</dd>
                 </div>
                 <div class="flex flex-wrap items-center mb-2">
                   <dt class="font-bold">Project number:</dt>
-                  <dd class="ml-4">20202</dd>
+                  <dd class="ml-4">{{ project.number }}</dd>
                 </div>
                 <div class="flex flex-wrap items-center mb-2">
                   <dt class="font-bold">Description:</dt>
-                  <dd class="ml-4">Install pavement markings and signage on rail streets where needed to improve bicycle safety and comfort.</dd>
+                  <dd class="ml-4">{{ project.description }}</dd>
                 </div>
                 <div class="flex flex-wrap items-center mb-2">
                   <dt class="font-bold">Location:</dt>
-                  <dd class="ml-4">Central City</dd>
+                  <dd class="ml-4">{{ project.location }}</dd>
                 </div>
                 <div class="flex flex-wrap items-center mb-2">
                   <dt class="font-bold">Lead agency:</dt>
-                  <dd class="ml-4">PBOT</dd>
+                  <dd class="ml-4">{{ project.agency }}</dd>
                 </div>
                 <div class="flex flex-wrap items-center mb-2">
                   <dt class="font-bold">Funding category:</dt>
-                  <dd class="ml-4">Constrained</dd>
+                  <dd class="ml-4">{{ project.fundingCategory }}</dd>
                 </div>
               </dl>
             </details>
           </li>
-        </ul>
-      </li>
-    </ul>
-  </article>
-{% endfor %}
+        {% endfor %}
+      </ul>
+    </li>
+  </ul>
+</article>
