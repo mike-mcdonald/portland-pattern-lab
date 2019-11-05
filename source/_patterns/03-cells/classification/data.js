@@ -1,42 +1,50 @@
-import FeatureLayer from "esri/layers/FeatureLayer";
-import GroupLayer from "esri/layers/GroupLayer";
-import EsriMap from "esri/Map";
-import { SimpleMarkerSymbol } from "esri/symbols";
-import { SimpleRenderer } from "esri/renderers";
+/* eslint-disable import/no-unresolved */
+import Basemap from 'esri/Basemap';
+import FeatureLayer from 'esri/layers/FeatureLayer';
+import GroupLayer from 'esri/layers/GroupLayer';
+import TileLayer from 'esri/layers/TileLayer';
+import Map from 'esri/Map';
+/* eslint-enable import/no-unresolved */
 
-const url =
-  "https://opendata.arcgis.com/datasets/ad5ed4193110452aac2d9485df3298e2_68.geojson";
-
-const template = {
-  title: "{FULL_NAME}",
-  content: "From {LEFTADD1} to {LEFTADD2} in {LCITY}, Oregon"
-};
-
-const renderer = new SimpleRenderer({
-  symbol: new SimpleMarkerSymbol(
-    {
-      size: 6,
-      color: "#f58220"
-    }
-  )
+const baseLayer = new TileLayer({
+  url: 'https://www.portlandmaps.com/arcgis/rest/services/Public/Basemap_Gray_Complete/MapServer',
 });
 
-const layerURLs = new Set([
-  'https://www.portlandmaps.com/arcgis/rest/services/Public/Transportation_System_Plan/MapServer/1',
-  'https://www.portlandmaps.com/arcgis/rest/services/Public/Transportation_System_Plan/MapServer/2',
-  'https://www.portlandmaps.com/arcgis/rest/services/Public/Transportation_System_Plan/MapServer/3'
-]);
+const basemap = new Basemap({
+  baseLayers: [
+    baseLayer,
+  ],
+});
 
-export const layer = new GroupLayer(
-  'https://www.portlandmaps.com/arcgis/rest/services/Public/Transportation_System_Plan/MapServer/0'
-);
+export const layers = [
+  new GroupLayer({
+    id: 'tsp-projects',
+    title: 'TSP Projects',
+    visibilityMode: 'inheirited',
+    visible: false,
+    layers: [
+      'https://www.portlandmaps.com/arcgis/rest/services/Public/Transportation_System_Plan/MapServer/22',
+      'https://www.portlandmaps.com/arcgis/rest/services/Public/Transportation_System_Plan/MapServer/23',
+      'https://www.portlandmaps.com/arcgis/rest/services/Public/Transportation_System_Plan/MapServer/24',
+    ].map((url) => new FeatureLayer({
+      url,
+    })),
+  }),
+  new GroupLayer({
+    id: 'transit-classifications',
+    title: 'Transit classes',
+    visibilityMode: 'inheirited',
+    visible: true,
+    layers: [
+      'https://www.portlandmaps.com/arcgis/rest/services/Public/Transportation_System_Plan/MapServer/1',
+      'https://www.portlandmaps.com/arcgis/rest/services/Public/Transportation_System_Plan/MapServer/2',
+      'https://www.portlandmaps.com/arcgis/rest/services/Public/Transportation_System_Plan/MapServer/3',
+    ].map((url) => new FeatureLayer({
+      url,
+    })),
+  }),
+];
 
-for (const url of layerURLs) {
-  layer.add(new FeatureLayer({
-    url,
-  }));
-}
-
-export const map = new EsriMap({
-  basemap: "streets-navigation-vector"
+export const map = new Map({
+  basemap,
 });

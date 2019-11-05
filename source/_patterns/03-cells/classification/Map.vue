@@ -3,19 +3,51 @@
     <section class="h-full">
       <div ref="map" class="relative h-full w-full"></div>
     </section>
-    <aside>
-      <div ref="top-right">
-        <slot name="top-right">
-          <div ref="search"></div>
-        </slot>
-      </div>
-      <div ref="bottom-left">
-        <slot name="bottom-left"></slot>
-      </div>
-      <div ref="bottom-right">
-        <slot name="bottom-right"></slot>
-      </div>
-    </aside>
+    <div ref="top-right">
+      <slot name="top-right">
+        <button v-if="!showSettings" class="h-8 w-8 p-1 bg-white" v-on:click="showSettings = true;">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="h-6 w-6"
+          >
+            <polygon points="12 2 2 7 12 12 22 7 12 2" />
+            <polyline points="2 17 12 22 22 17" />
+            <polyline points="2 12 12 17 22 12" />
+          </svg>
+        </button>
+        <div v-if="showSettings" class="p-2 bg-white">
+          <header class="flex items-baseline justify-between">
+            <h2 class="text-2xl">Settings</h2>
+            <button v-on:click="showSettings = false;">X</button>
+          </header>
+          <main class="flex flex-col md:flex-row -mx-1 overflow-y-auto">
+            <header class="flex items-baseline justify-between">
+              <h3 class="text-xl">Layers</h3>
+            </header>
+            <checkbox title="Street design classification" />
+            <checkbox title="Street design classification" />
+            <checkbox title="Street design classification" />
+            <checkbox title="Street design classification" />
+            <checkbox title="Street design classification" />
+            <checkbox title="Street design classification" />
+          </main>
+        </div>
+      </slot>
+    </div>
+    <div ref="bottom-left">
+      <slot name="bottom-left"></slot>
+    </div>
+    <div ref="bottom-right">
+      <slot name="bottom-right">
+        <div class="h-64 w-64 border rounded overflow-y-auto bg-white">{{ extent }}</div>
+      </slot>
+    </div>
   </div>
 </template>
 
@@ -23,6 +55,7 @@
 import Vue from "vue";
 
 import Map from "esri/Map";
+import watchUtils from "esri/core/watchUtils";
 import Extent from "esri/geometry/Extent";
 import Layer from "esri/layers/Layer";
 import Locator from "esri/tasks/Locator";
@@ -33,13 +66,23 @@ import Legend from "esri/widgets/Legend";
 import Search from "esri/widgets/Search";
 import LocatorSearchSource from "esri/widgets/Search/LocatorSearchSource";
 
-import { layer, map } from "./data";
+import Checkbox from "../../02-molecules/form/Checkbox.vue";
+
+import { layers, map } from "./data";
 const wkt = "";
 
 export default Vue.extend({
   name: "Map",
-  props: ["layers"],
-  components: {},
+  data: function() {
+    return {
+      extent: "",
+      layers,
+      showSettings: false
+    };
+  },
+  components: {
+    Checkbox
+  },
   mounted: function() {
     const el = this.$refs["map"];
     const view = new MapView({
@@ -48,73 +91,24 @@ export default Vue.extend({
     });
 
     view.extent = new Extent({
-      xmin: -13674088.5469,
-      ymin: 5689892.284199998,
-      xmax: -13633591.503800001,
-      ymax: 5724418.291699998,
-      spatialReference: {
-        wkid: 102100
-      }
+      spatialReference: { wkid: 102100 },
+      xmin: -13656940.502309779,
+      ymin: 5703052.172158225,
+      xmax: -13656330.200412115,
+      ymax: 5703440.328942453
     });
-
-    this.layers = this.layers || [layer];
 
     map.layers = this.layers;
-
-    for (const layer of this.layers) {
-      layer
-        .when(function() {
-          return layer.queryExtent();
-        })
-        .then(function(response) {
-          view.goTo(response.extent);
-        });
-    }
-
-    const legend = new Legend({
-      view,
-      layerInfos: this.layers.map((l, i) => {
-        return {
-          layer: l
-        };
-      })
-    });
-
-    var searchWidget = new Search({
-      view: view,
-      container: this.$refs["search"],
-      sources: [
-        new LocatorSearchSource({
-          locator: new Locator({
-            url:
-              "https://www.portlandmaps.com/arcgis/rest/services/Public/Address_Geocoding_PDX/GeocodeServer"
-          }),
-          singleLineFieldName: "Single Line Input",
-          name: "Portland Geocoding Service",
-          placeholder: "Search Portland",
-          maxResults: 3,
-          maxSuggestions: 6,
-          suggestionsEnabled: true,
-          minSuggestCharacters: 0
-        })
-      ],
-      includeDefaultSources: false
-    });
-
-    var layerList = new LayerList({
-      view: view
-    });
-    // Adds widget below other elements in the top left corner of the view
-    view.ui.add(layerList, {
-      position: "bottom-right",
-      index: 1
-    });
 
     view.ui.add(this.$refs["top-right"], "top-right");
     view.ui.add(this.$refs["bottom-left"], "bottom-left");
     view.ui.add(this.$refs["bottom-right"], {
       position: "bottom-right",
       index: 2
+    });
+
+    view.watch("extent", (newValue, oldValue, propertyName, target) => {
+      this.extent = JSON.stringify(newValue, null, 2);
     });
   }
 });
@@ -123,8 +117,6 @@ export default Vue.extend({
 <style lang="scss">
 @import url("https://js.arcgis.com/4.12/esri/themes/light/main.css");
 
-.portland-map-app {
-}
 @media print {
   .esri-ui {
     display: none;
