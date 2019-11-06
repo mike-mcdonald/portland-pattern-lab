@@ -23,9 +23,13 @@
           "border-b",
         ]
       } %}
-      {% for i in range(0, 3) %}
-        {% include "@cells/street/street-search-result.twig" %}
-      {% endfor %}
+      <section class="flex flex-col">
+        {% for i in range(0, 3) %}
+          <a href="#" class="py-3 px-2 border-0 hover:bg-blue-100">SW 6th Ave,
+            {{ 1000 * i }}
+            block</a>
+        {% endfor %}
+      </section>
     {% endblock %}
     {% block second %}
       <section>
