@@ -1,8 +1,0 @@
-{
-  "name": "SW MAIN ST",
-  "block": "1000",
-  "id": "TP001-1234",
-  "bicycle": "major",
-  "transit": "minor",
-  "emergency": "minor"
-}
