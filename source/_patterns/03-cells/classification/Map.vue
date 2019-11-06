@@ -5,7 +5,7 @@
     </section>
     <div ref="top-right">
       <slot name="top-right">
-        <button v-if="!showSettings" class="h-8 w-8 p-1 bg-white" v-on:click="showSettings = true;">
+        <button v-if="!showSettings" class="p-2 bg-white" v-on:click="showSettings = true;">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
@@ -21,9 +21,9 @@
             <polyline points="2 12 12 17 22 12" />
           </svg>
         </button>
-        <div v-if="showSettings" class="p-2 bg-white">
-          <header class="flex items-baseline justify-between">
-            <h2 class="text-2xl">Settings</h2>
+        <div v-if="showSettings" class="bg-white h-64 overflow-y-auto">
+          <header class="p-2 flex items-baseline justify-between sticky top-0 bg-gray-100">
+            <h2 class="m-0 text-2xl">Settings</h2>
             <button v-on:click="showSettings = false;">X</button>
           </header>
           <main class="overflow-y-auto">
@@ -41,14 +41,20 @@
       </slot>
     </div>
     <div ref="bottom-left">
-      <slot name="bottom-left"></slot>
+      <slot name="bottom-left">
+        <div class="h-64 w-64 p-2 bg-white">
+          <span>{{ JSON.stringify(extent, null, 2) }}</span>
+        </div>
+      </slot>
     </div>
     <div ref="bottom-right">
       <slot name="bottom-right">
-        <button v-if="!showLegend" class="h-8 w-8 p-1 bg-white" v-on:click="showLegend = true;">
+        <button v-if="!showLegend" class="p-2 bg-white" v-on:click="showLegend = true;">
           <!-- This is from feather.  Their site is here: https://www.feathericons.com -->
           <svg
             xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
@@ -57,9 +63,12 @@
             stroke-linejoin="round"
             class="h-6 w-6"
           >
-            <polygon points="12 2 2 7 12 12 22 7 12 2" />
-            <polyline points="2 17 12 22 22 17" />
-            <polyline points="2 12 12 17 22 12" />
+            <line x1="8" y1="6" x2="21" y2="6" />
+            <line x1="8" y1="12" x2="21" y2="12" />
+            <line x1="8" y1="18" x2="21" y2="18" />
+            <line x1="3" y1="6" x2="3.01" y2="6" />
+            <line x1="3" y1="12" x2="3.01" y2="12" />
+            <line x1="3" y1="18" x2="3.01" y2="18" />
           </svg>
         </button>
         <div v-show="showLegend" class="bg-white h-64 overflow-y-auto">
@@ -67,7 +76,7 @@
             <h2 class="m-0 text-2xl">Legend</h2>
             <button v-on:click="showLegend = false;">X</button>
           </header>
-          <main ref="legend" class="overflow-y-auto"></main>
+          <main ref="legend"></main>
         </div>
       </slot>
     </div>
@@ -114,10 +123,10 @@ export default Vue.extend({
     store.actions.setExtent(
       new Extent({
         spatialReference: { wkid: 102100 },
-        xmin: -13656728.731995031,
-        ymin: 5703173.36547962,
-        xmax: -13656594.817904502,
-        ymax: 5703311.459720133
+        xmin: -13657201.014297701,
+        ymin: 5702628.527716513,
+        xmax: -13656122.535601832,
+        ymax: 5703856.29748324
       })
     );
 
@@ -152,7 +161,7 @@ export default Vue.extend({
         }
       }),
       symbol: new SimpleLineSymbol({
-        color: "#b8dbdb",
+        color: "#00a0ae",
         width: 6
       })
     });
@@ -162,6 +171,10 @@ export default Vue.extend({
     });
 
     store.actions.addLayer(graphicsLayer);
+
+    store.state.view.watch("extent", newValue => {
+      this.extent = newValue;
+    });
   }
 });
 </script>
