@@ -33,12 +33,13 @@ import Vue from "vue";
 
 import Graphic from "esri/Graphic";
 import GraphicsLayer from "esri/layers/GraphicsLayer";
-import Point from "esri/geometry/Point";
+import { Point, Polyline } from "esri/geometry";
 
 import Textfield from "../../02-molecules/form/Textfield.vue";
 
 import store from "../../../_data/tsp-store";
-import { Polyline } from "esri/geometry";
+
+import secrets from "../../../_data/.secrets";
 
 export default Vue.extend({
   name: "App",
@@ -53,7 +54,7 @@ export default Vue.extend({
   methods: {
     handleInput: async function(text) {
       const body = {
-        api_key: process.env.PORTLANDMAPS_API_KEY,
+        api_key: secrets.portlandmapsApiKey,
         query: text
       };
 
