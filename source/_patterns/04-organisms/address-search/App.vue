@@ -35,7 +35,6 @@ import Graphic from "esri/Graphic";
 import GraphicsLayer from "esri/layers/GraphicsLayer";
 import Point from "esri/geometry/Point";
 
-import Map from "../../03-cells/map/Map.vue";
 import Textfield from "../../02-molecules/form/Textfield.vue";
 
 import store from "../../../_data/tsp-store";
@@ -43,7 +42,7 @@ import { Polyline } from "esri/geometry";
 
 export default Vue.extend({
   name: "App",
-  components: { Map, Textfield },
+  components: { Textfield },
   data: function() {
     return {
       state: store.state,
