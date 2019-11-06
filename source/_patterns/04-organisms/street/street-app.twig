@@ -1,39 +1,45 @@
+{% include "@cells/header/header.twig" %}
 <main>
-    {% embed "@cells/_two-columns.twig" with {
-        'firstClasses' : [
-            "w-full",
-            "md:w-1/3",
-            "p-2",
-            "h-screen-50",
-            "lg:h-screen",
-            "overflow-y-auto"
-        ],
-        'secondClasses' : [
-            "w-full",
-            "lg:flex-1",
-            "h-screen-50",
-            "lg:h-screen",
-        ],
-    } only %}
-        {% block first %}
-            {% include "@organisms/street/street-listing.twig" with {
-                "candidates": [
-                    {
-                        "name": "SW MAIN ST",
-                        "id": "TP001-1234",
-                        "bicycle": "major",
-                        "transit": "minor",
-                        "emergency": "minor"
-                    }
-                ]
-            } %}
-        {% endblock %}
-        {% block second %}
-            {% include "@cells/classification/classification-map.twig" with {
+  {% embed "@cells/_two-columns.twig" with {
+    wrapperClasses: [
+        "flex",
+        "flex-col",
+        "lg:flex-row",
+    ],
+    'firstClasses' : [
+        "w-full",
+        "md:w-1/3",
+        "lg:h-screen",
+        "p-2",
+        "overflow-y-auto"
+    ],
+    'secondClasses' : [
+        "w-full",
+        "h-screen-50",
+        "lg:h-full",
+        "lg:flex-1",
+    ],
+  } %}
+    {% block first %}
+      {% include "@organisms/address-search/address-search.twig" %}
+      <div class="my-1">
+        {% include "@molecules/navigation/pagination.twig" %}
+      </div>
+      {% include "@organisms/street/street-listing.twig" with {
+          'id': street.id,
+          'name': street.name,
+          'block': 1000,
+          'classification': street.classification,
+          'projects': street.projects
+      } %}
+    {% endblock %}
+    {% block second %}
+      {% include "@cells/classification/classification-map.twig" with {
                 "classes": [
-                    "h-full",
+                    "h-screen",
                 ]
             } %}
-        {% endblock %}
-    {% endembed %}
+    {% endblock %}
+  {% endembed %}
 </main>
+{% include "@cells/footer/footer.twig" %}

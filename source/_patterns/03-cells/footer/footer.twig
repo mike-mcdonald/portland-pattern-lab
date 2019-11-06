@@ -1,0 +1,19 @@
+<footer class="flex flex-wrap items-center justify-between bg-gray-300 text-black p-2 border-black border-b" role="banner">
+  {% set logo %}
+  {% include "@atoms/04-images/pbotapps-logo.twig" with {
+			"classes": [
+				"w-24"
+			]
+		} only %}
+  {% endset %}
+  {% include "@atoms/02-text/_link.twig" with {
+		"url": "#",
+		"content": logo,
+		"classes": [
+			"border-0",
+			"mr-3"
+		]
+	} %}
+  {% include "@molecules/navigation/footer-navigation.twig" %}
+  {% include "@molecules/text/copyright.twig" %}
+</footer>
