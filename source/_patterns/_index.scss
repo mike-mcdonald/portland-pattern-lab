@@ -1,6 +1,6 @@
 @tailwind base;
 @tailwind components;
-@import './00-particles/_index.scss';
-@import './01-atoms/_index.scss';
-@import './03-cells/_index.scss';
 @tailwind utilities;
+@import "./00-particles/_index.scss";
+@import "./01-atoms/_index.scss";
+@import "./04-organisms/_index.scss";

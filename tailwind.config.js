@@ -107,6 +107,7 @@ module.exports = {
         'screen-32': '32vh',
         'screen-40': '40vh',
         'screen-48': '48vh',
+        'screen-50': '50vh',
         'screen-56': '56vh',
         'screen-64': '64vh',
         'screen-68': '68vh',

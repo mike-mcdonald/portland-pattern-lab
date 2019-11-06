@@ -1,0 +1,41 @@
+{% include "@cells/header/header.twig" %}
+<main class="mx-auto px-2">
+  {% embed "@cells/_two-columns.twig" with {
+        'firstClasses' : [
+            "w-full",
+            "md:w-1/4",
+            "lg:h-screen",
+            "bg-gray-100",
+        ],
+        'secondClasses' : [
+            "w-full",
+            "lg:flex-1",
+            "lg:h-full",
+        ],
+    } %}
+    {% block first %}
+      {% include "@organisms/address-search/address-search.twig" with {
+        classes: [
+          "px-2",
+          "pt-3",
+          "pb-6",
+          "border-b",
+        ]
+      } %}
+      <section class="flex flex-col">
+        {% for i in range(0, 3) %}
+          <a href="#" class="py-3 px-2 border-0 hover:bg-blue-100">SW 6th Ave,
+            {{ 1000 * i }}
+            block</a>
+        {% endfor %}
+      </section>
+    {% endblock %}
+    {% block second %}
+      {% include "@cells/classification/classification-map.twig" with {
+                "classes": [
+                    "h-screen",
+                ]
+            } %}
+    {% endblock %}
+  {% endembed %}
+</main>

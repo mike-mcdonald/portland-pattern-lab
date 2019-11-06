@@ -1,11 +1,71 @@
 {
-    "candidates": [
-        {
-            "name": "SW MAIN ST",
-            "id": "TP001-1234",
-            "bicycle": "major",
-            "transit": "minor",
-            "emergency": "minor"
-        }
-    ]
+  "id": "TP01-0003652",
+  "name": "SW 6TH AVE",
+  "classification": {
+    "bicycle": "LS",
+    "design": "CIC",
+    "pedestrian": "CCTP",
+    "traffic": "LS",
+    "transit": "RTMTP",
+    "freight": "LS",
+    "greenscape": "N"
+  },
+  "projects": [
+    {
+      "id": "TP03-0000061",
+      "name": "Portland Streetcar Operational Improvements",
+      "number": 20125,
+      "location": "Central City",
+      "description": "Design and implement projects to improve the operational efficiency of Portland Streetcar.",
+      "agency": "PBOT",
+      "estimatedCost": 1000000,
+      "estimatedTimeframe": "1-10_YRS",
+      "district": "CENTRAL",
+      "facilityOwner": "PBOT",
+      "patternArea": "CENT",
+      "fundingCategory": "Constrained"
+    },
+    {
+      "id": "TP03-0000065",
+      "name": "Bicycle / Rail Safety Improvements",
+      "number": 20202,
+      "location": "Central City",
+      "description": "Install pavement markings and signage on rail streets where needed to improve bicycle safety and comfort.",
+      "agency": "PBOT",
+      "estimatedCost": 250000,
+      "estimatedTimeframe": "1-10_YRS",
+      "district": "CENTRAL",
+      "facilityOwner": "PBOT",
+      "patternArea": "CENT",
+      "fundingCategory": "Constrained"
+    },
+    {
+      "id": "TP03-0000059",
+      "name": "Hayden Island Street Network Improvements, Phase 1",
+      "number": 30018,
+      "location": "Hayden Island, N",
+      "description": "Implement street plan for Hayden Island to improve circulation and access for all modes.",
+      "agency": "PBOT",
+      "estimatedCost": 1834600,
+      "estimatedTimeframe": "11-20_YRS",
+      "district": "N",
+      "facilityOwner": "PBOT",
+      "patternArea": "INDUSTRIAL",
+      "fundingCategory": "Constrained"
+    },
+    {
+      "id": "TP03-0000059",
+      "name": "Central City TSM",
+      "number": 20016,
+      "location": "Central City",
+      "description": "Implement Central City TSM improvements to arterials.",
+      "agency": "PBOT",
+      "estimatedCost": 3250000,
+      "estimatedTimeframe": "11-20_YRS",
+      "district": "CENTRAL",
+      "facilityOwner": "PBOT/ODOT",
+      "patternArea": "CENT",
+      "fundingCategory": "Constrained"
+    }
+  ]
 }

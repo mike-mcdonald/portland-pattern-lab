@@ -12,3 +12,6 @@
 # Compiled files
 public
 dependencyGraph.json
+
+# Secrets
+/**/.secrets.js
