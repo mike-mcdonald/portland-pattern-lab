@@ -1,59 +1,8 @@
 import Basemap from "esri/Basemap";
-import Polyline from "esri/geometry/Polyline";
 import FeatureLayer from "esri/layers/FeatureLayer";
 import TileLayer from "esri/layers/TileLayer";
-import GraphicsLayer from "esri/layers/GraphicsLayer";
 import GroupLayer from "esri/layers/GroupLayer";
 import EsriMap from "esri/Map";
-import { SimpleMarkerSymbol } from "esri/symbols";
-import { SimpleRenderer } from "esri/renderers";
-
-const url =
-  "https://opendata.arcgis.com/datasets/ad5ed4193110452aac2d9485df3298e2_68.geojson";
-
-const classificationTemplate = {
-  title: "{StreetName}: ({TranPlanID})",
-  content: `
-  <div>
-    <table class="w-full table-fixed border-collapse">
-      <tbody>
-        <tr>
-          <th class="flex content-start px-2 py-1">Traffic</th>
-          <td>{Traffic}</td>
-        </tr>
-        <tr>
-          <th class="flex content-start px-2 py-1">Transit</th>
-          <td>{Transit}</td>
-        </tr>
-        <tr>
-          <th class="flex content-start px-2 py-1">Bicycle</th>
-          <td>{Bicycle}</td>
-        </tr>
-        <tr>
-          <th class="flex content-start px-2 py-1">Pedestrian</th>
-          <td>{Pedestrian}</td>
-        </tr>
-        <tr>
-          <th class="flex content-start px-2 py-1">Freight</th>
-          <td>{Freight}</td>
-        </tr>
-        <tr>
-          <th class="flex content-start px-2 py-1">Emergency</th>
-          <td>{Emergency}</td>
-        </tr>
-        <tr>
-          <th class="flex content-start px-2 py-1">Design</th>
-          <td>{Design}</td>
-        </tr>
-        <tr>
-          <th class="flex content-start px-2 py-1">Greenscape</th>
-          <td>{Greenscape}</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-  `
-};
 
 export const basemaps = [
   "https://www.portlandmaps.com/arcgis/rest/services/Public/Basemap_Color_Complete/MapServer",
@@ -106,8 +55,7 @@ export const layers = [
     ].map(
       url =>
         new FeatureLayer({
-          url,
-          popupTemplate: classificationTemplate
+          url
         })
     )
   }),
@@ -122,8 +70,7 @@ export const layers = [
     ].map(
       url =>
         new FeatureLayer({
-          url,
-          popupTemplate: classificationTemplate
+          url
         })
     )
   }),
@@ -138,8 +85,7 @@ export const layers = [
     ].map(
       url =>
         new FeatureLayer({
-          url,
-          popupTemplate: classificationTemplate
+          url
         })
     )
   }),
@@ -154,8 +100,7 @@ export const layers = [
     ].map(
       url =>
         new FeatureLayer({
-          url,
-          popupTemplate: classificationTemplate
+          url
         })
     )
   }),
@@ -171,8 +116,7 @@ export const layers = [
     ].map(
       url =>
         new FeatureLayer({
-          url,
-          popupTemplate: classificationTemplate
+          url
         })
     )
   })
@@ -180,7 +124,7 @@ export const layers = [
 
 export const map = new EsriMap({
   basemap: basemaps[0],
-  layers: layers
+  layers
 });
 
 const state = {
@@ -193,13 +137,18 @@ const state = {
 };
 
 const actions = {
-  setView(view) {
+  setView (view) {
     state.view = view;
   },
-  addLayer(layer) {
+  setExtent (extent) {
+    if (state.view) {
+      state.view.extent = extent;
+    }
+  },
+  addLayer (layer) {
     state.map.add(layer);
   },
-  addGraphic(graphic) {
+  addGraphic (graphic) {
     state.view.graphics.add(graphic);
   }
 };
