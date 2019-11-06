@@ -33,16 +33,14 @@ export const layers = [
     ].map(
       url =>
         new FeatureLayer({
-          url,
-          popupTemplate: classificationTemplate
+          url
         })
     )
   }),
   new FeatureLayer({
     url:
       "https://www.portlandmaps.com/arcgis/rest/services/Public/Transportation_System_Plan/MapServer/4",
-    visible: false,
-    popupTemplate: classificationTemplate
+    visible: false
   }),
   new GroupLayer({
     id: "emergency-classifications",
@@ -123,7 +121,7 @@ export const layers = [
 ];
 
 export const map = new EsriMap({
-  basemap: basemaps[0],
+  basemap: basemaps[1],
   layers
 });
 
