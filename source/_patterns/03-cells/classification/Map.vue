@@ -26,7 +26,7 @@
             <h2 class="text-2xl">Settings</h2>
             <button v-on:click="showSettings = false;">X</button>
           </header>
-          <main class="flex flex-col md:flex-row -mx-1 overflow-y-auto">
+          <main class="overflow-y-auto">
             <header class="flex items-baseline justify-between">
               <h3 class="text-xl">Layers</h3>
             </header>
@@ -57,18 +57,19 @@ import Vue from "vue";
 import Map from "esri/Map";
 import watchUtils from "esri/core/watchUtils";
 import Extent from "esri/geometry/Extent";
-import Layer from "esri/layers/Layer";
-import Locator from "esri/tasks/Locator";
+import Polyline from "esri/geometry/Polyline";
+import Graphic from "esri/Graphic";
+import GraphicsLayer from "esri/layers/GraphicsLayer";
+import SimpleFillSymbol from "esri/symbols/SimpleFillSymbol";
+import SimpleLineSymbol from "esri/symbols/SimpleLineSymbol";
 import MapView from "esri/views/MapView";
-import Expand from "esri/widgets/Expand";
-import LayerList from "esri/widgets/LayerList";
-import Legend from "esri/widgets/Legend";
-import Search from "esri/widgets/Search";
-import LocatorSearchSource from "esri/widgets/Search/LocatorSearchSource";
 
 import Checkbox from "../../02-molecules/form/Checkbox.vue";
 
 import { layers, map } from "./data";
+
+import store from "../../../_data/tsp-store";
+
 const wkt = "";
 
 export default Vue.extend({
@@ -87,7 +88,7 @@ export default Vue.extend({
     const el = this.$refs["map"];
     const view = new MapView({
       container: el,
-      map: map
+      map: store.state.map
     });
 
     view.extent = new Extent({
@@ -110,6 +111,30 @@ export default Vue.extend({
     view.watch("extent", (newValue, oldValue, propertyName, target) => {
       this.extent = JSON.stringify(newValue, null, 2);
     });
+
+    const streetGraphic = new Graphic({
+      geometry: new Polyline({
+        paths: [
+          [-122.67970077639984, 45.517080607879706],
+          [-122.68005927336847, 45.51640709738621]
+        ],
+        spatialReference: {
+          wkid: 4326
+        }
+      }),
+      symbol: new SimpleLineSymbol({
+        color: "#b8dbdb",
+        width: 6
+      })
+    });
+
+    const graphicsLayer = new GraphicsLayer({
+      graphics: [streetGraphic]
+    });
+
+    store.state.map.layers.add(graphicsLayer);
+
+    view.goTo(streetGraphic);
   }
 });
 </script>
