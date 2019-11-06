@@ -51,7 +51,7 @@
   </div>
 </template>
 
-<script lang="ts">
+<script lang='ts'>
 import Vue from "vue";
 
 import Map from "esri/Map";
@@ -115,8 +115,10 @@ export default Vue.extend({
     const streetGraphic = new Graphic({
       geometry: new Polyline({
         paths: [
-          [-122.67970077639984, 45.517080607879706],
-          [-122.68005927336847, 45.51640709738621]
+          [
+            [-122.67970077639984, 45.517080607879706],
+            [-122.68005927336847, 45.51640709738621]
+          ]
         ],
         spatialReference: {
           wkid: 4326
