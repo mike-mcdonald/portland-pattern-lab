@@ -23,25 +23,13 @@
   "ishViewportRange": {
     "s": [
       240,
-      500,
-      240,
-      500,
-      240,
       500
     ],
     "m": [
       500,
-      800,
-      500,
-      800,
-      500,
       800
     ],
     "l": [
-      800,
-      2600,
-      800,
-      2600,
       800,
       2600
     ]
@@ -88,16 +76,13 @@
   "patternStateCascade": [
     "inprogress",
     "inreview",
-    "complete",
-    "inprogress",
-    "inreview",
-    "complete",
-    "inprogress",
-    "inreview",
     "complete"
   ],
-  "patternExportDirectory": "./pattern_exports/",
+  "patternExportAll": false,
+  "patternExportDirectory": "pattern_exports",
   "patternExportPatternPartials": [],
+  "patternExportPreserveDirectoryStructure": true,
+  "patternExportRaw": false,
   "serverOptions": {
     "wait": 1000
   },
@@ -115,32 +100,11 @@
       "enabled": true,
       "excludedPatternStates": [],
       "excludedTags": []
-    },
-    {
-      "name": "uikit-workshop",
-      "outputDir": "",
-      "enabled": true,
-      "excludedPatternStates": [],
-      "excludedTags": []
-    },
-    {
-      "name": "uikit-workshop",
-      "outputDir": "",
-      "enabled": true,
-      "excludedPatternStates": [],
-      "excludedTags": []
     }
   ],
   "engines": {
     "twig": {
       "namespaces": [
-        {
-          "id": "uikit",
-          "recursive": true,
-          "paths": [
-            "./node_modules/@pattern-lab/uikit-workshop/views-twig"
-          ]
-        },
         {
           "id": "particles",
           "recursive": true,
