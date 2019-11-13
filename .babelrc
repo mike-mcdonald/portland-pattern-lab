@@ -1,10 +1,9 @@
 {
     "presets": [
-        [
-            "@babel/preset-env",
-            {
-                "modules": "amd"
-            }
-        ]
+        "@babel/preset-env",
+        "@babel/typescript"
+    ],
+    "plugins": [
+        "@babel/plugin-transform-modules-amd"
     ]
 }

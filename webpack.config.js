@@ -1,8 +1,9 @@
 const path = require('path');
 const globby = require('globby');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const VueLoaderPlugin = require('vue-loader/lib/plugin');
 const ArcGISPlugin = require('@arcgis/webpack-plugin');
+var FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 
 module.exports = (env, argv) => ({
   entry: {
@@ -10,6 +11,7 @@ module.exports = (env, argv) => ({
   },
   devtool: 'source-map',
   mode: process.env.NODE_ENV,
+  stats: 'none',
   output: {
     path: path.resolve(__dirname, 'public', 'js'),
     filename: '[name].bundle.js',
@@ -19,7 +21,7 @@ module.exports = (env, argv) => ({
     ignored: [
       path.resolve(__dirname, 'node_modules'),
       path.resolve(__dirname, 'images'),
-      path.resolve(__dirname, 'css'),
+      path.resolve(__dirname, 'css')
     ]
   },
   plugins: [
@@ -28,9 +30,10 @@ module.exports = (env, argv) => ({
     }),
     new MiniCssExtractPlugin({
       filename: '../css/style.bundle.css',
-      chunkFilename: '../css/[id].bundle.css',
+      chunkFilename: '../css/[id].bundle.css'
     }),
-    new VueLoaderPlugin()
+    new VueLoaderPlugin(),
+    new FriendlyErrorsWebpackPlugin()
   ],
   module: {
     rules: [
@@ -71,7 +74,7 @@ module.exports = (env, argv) => ({
             }
           },
           {
-            loader: "resolve-url-loader"
+            loader: 'resolve-url-loader'
           },
           {
             loader: 'sass-loader',
@@ -84,14 +87,14 @@ module.exports = (env, argv) => ({
       {
         test: /\.wasm$/,
         type: 'javascript/auto',
-        loader: 'file-loader',
+        loader: 'file-loader'
       }
     ]
   },
   externals: [
     (context, request, callback) => {
       if (/pe-wasm$/.test(request)) {
-        return callback(null, "amd " + request);
+        return callback(null, 'amd ' + request);
       }
       callback();
     }
@@ -99,6 +102,6 @@ module.exports = (env, argv) => ({
   node: {
     process: false,
     global: false,
-    fs: "empty"
+    fs: 'empty'
   }
 });
