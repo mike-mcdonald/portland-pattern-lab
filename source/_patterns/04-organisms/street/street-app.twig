@@ -16,14 +16,18 @@
     'secondClasses' : [
         "w-full",
         "h-screen-50",
-        "lg:h-full",
+        "lg:h-screen",
         "lg:flex-1",
     ],
   } %}
     {% block first %}
       {% include "@organisms/address-search/address-search.twig" %}
-      <div class="my-1">
-        {% include "@molecules/navigation/pagination.twig" %}
+      <div class="my-3">
+        {% include "@atoms/02-text/_link.twig" with {
+          url: '#',
+          classes: '',
+          content: 'Back to results'
+        } %}
       </div>
       {% include "@organisms/street/street-listing.twig" with {
           'id': street.id,
@@ -34,11 +38,7 @@
       } %}
     {% endblock %}
     {% block second %}
-      {% include "@cells/classification/classification-map.twig" with {
-                "classes": [
-                    "h-screen",
-                ]
-            } %}
+      {% include "@cells/classification/classification-map.twig" %}
     {% endblock %}
   {% endembed %}
 </main>
