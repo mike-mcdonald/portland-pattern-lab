@@ -1,5 +1,5 @@
 {% for candidate in candidates %}
-  <div role="button" href="#" class="p-2 border-2 flex flex-wrap cursor-pointer hover:bg-blue-100">
+  <div role="button" href="#" class="p-2 border-b flex flex-wrap cursor-pointer hover:bg-blue-100">
     {% if candidate.attributes.type %}
       <span class="flex items-center flex-initial rounded-full bg-blue-500 text-white uppercase px-2 py-1 text-xs font-bold mx-2">{{ candidate.attributes.type }}</span>
     {% endif %}
