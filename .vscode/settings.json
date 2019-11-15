@@ -1,0 +1,25 @@
+// Place your settings in this file to overwrite default and user settings.
+{
+  "eslint.validate": [
+    {
+      "language": "vue",
+      "autoFix": true
+    },
+    {
+      "language": "javascript",
+      "autoFix": true
+    },
+    {
+      "language": "typescript",
+      "autoFix": true
+    }
+  ],
+  "eslint.autoFixOnSave": true,
+  "editor.formatOnSave": false,
+  "vetur.validation.template": false,
+  "twig-language-2.bracePadding": true,
+  "twig-language-2.correct": true,
+  "twig-language-2.forceAttribute": true,
+  "twig-language-2.spaceClose": true,
+  "typescript.tsdk": "node_modules/typescript/lib"
+}
