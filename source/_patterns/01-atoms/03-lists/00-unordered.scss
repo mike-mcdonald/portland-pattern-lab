@@ -1,7 +1,6 @@
 ul {
-    @apply list-disc list-inside;
-    
-    ul {
-        @apply ml-4;
-    }
+  @apply list-disc list-outside pl-6;
+  ul {
+    @apply pl-6;
+  }
 }
