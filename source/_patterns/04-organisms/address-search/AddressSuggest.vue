@@ -65,7 +65,6 @@
 import axios from 'axios';
 import Vue from 'vue';
 import { mapState, mapActions } from 'vuex';
-import qs from 'querystring';
 
 import Graphic from 'esri/Graphic';
 import GraphicsLayer from 'esri/layers/GraphicsLayer';
@@ -92,7 +91,7 @@ export default Vue.extend({
   },
   methods: {
     ...mapActions('portlandmaps', ['clearCandidates', 'findCandidates']),
-    handleClick(candidate) {
+    handleClick(candidate: any) {
       this.$emit('candidate-select', candidate);
       this.clearCandidates();
     }

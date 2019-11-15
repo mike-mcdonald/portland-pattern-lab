@@ -1,11 +1,10 @@
 import Vue from 'vue';
-import Vuex from 'vuex';
+import Vuex, { MutationTree, StoreOptions } from 'vuex';
 
 import Basemap from 'esri/Basemap';
 import FeatureLayer from 'esri/layers/FeatureLayer';
 import TileLayer from 'esri/layers/TileLayer';
 import GroupLayer from 'esri/layers/GroupLayer';
-import EsriMap from 'esri/Map';
 
 import portlandmaps from './portlandmaps-module';
 
@@ -15,23 +14,27 @@ export const basemaps = [
   'https://www.portlandmaps.com/arcgis/rest/services/Public/Basemap_Color_Complete/MapServer',
   'https://www.portlandmaps.com/arcgis/rest/services/Public/Basemap_Gray_Complete/MapServer',
   'https://www.portlandmaps.com/arcgis/rest/services/Public/Basemap_Color_Complete_Aerial/MapServer'
-].map(
-  url =>
-    new Basemap({
-      baseLayers: [
-        new TileLayer({
-          url
-        })
-      ],
-      title: /Basemap_([a-zA-Z_]+)/i.exec(url)[1].replace('_', ' ')
-    })
-);
+].map(url => {
+  let title = undefined;
+  const matches = /Basemap_([a-zA-Z_]+)/i.exec(url);
+  if (matches) {
+    title = matches[1].replace('_', ' ').replace('_', ' ');
+  }
+  return new Basemap({
+    baseLayers: [
+      new TileLayer({
+        url
+      })
+    ],
+    title
+  });
+});
 
 export const layers = [
   new GroupLayer({
     id: 'transit-classifications',
     title: 'Transit classes',
-    visibilityMode: 'inheirited',
+    visibilityMode: 'inherited',
     visible: true,
     layers: [
       'https://www.portlandmaps.com/arcgis/rest/services/Public/Transportation_System_Plan/MapServer/1',
@@ -45,14 +48,13 @@ export const layers = [
     )
   }),
   new FeatureLayer({
-    url:
-      'https://www.portlandmaps.com/arcgis/rest/services/Public/Transportation_System_Plan/MapServer/4',
+    url: 'https://www.portlandmaps.com/arcgis/rest/services/Public/Transportation_System_Plan/MapServer/4',
     visible: false
   }),
   new GroupLayer({
     id: 'emergency-classifications',
     title: 'Emergency response classes',
-    visibilityMode: 'inheirited',
+    visibilityMode: 'inherited',
     visible: false,
     layers: [
       'https://www.portlandmaps.com/arcgis/rest/services/Public/Transportation_System_Plan/MapServer/6',
@@ -67,7 +69,7 @@ export const layers = [
   new GroupLayer({
     id: 'street-design-classifications',
     title: 'Street design classes',
-    visibilityMode: 'inheirited',
+    visibilityMode: 'inherited',
     visible: false,
     layers: [
       'https://www.portlandmaps.com/arcgis/rest/services/Public/Transportation_System_Plan/MapServer/9',
@@ -82,7 +84,7 @@ export const layers = [
   new GroupLayer({
     id: 'bicycle-classifications',
     title: 'Bicycle classes',
-    visibilityMode: 'inheirited',
+    visibilityMode: 'inherited',
     visible: false,
     layers: [
       'https://www.portlandmaps.com/arcgis/rest/services/Public/Transportation_System_Plan/MapServer/12',
@@ -97,7 +99,7 @@ export const layers = [
   new GroupLayer({
     id: 'pedestrian-classifications',
     title: 'Pedestrian classes',
-    visibilityMode: 'inheirited',
+    visibilityMode: 'inherited',
     visible: false,
     layers: [
       'https://www.portlandmaps.com/arcgis/rest/services/Public/Transportation_System_Plan/MapServer/15',
@@ -112,7 +114,7 @@ export const layers = [
   new GroupLayer({
     id: 'freight-classifications',
     title: 'Freight classes',
-    visibilityMode: 'inheirited',
+    visibilityMode: 'inherited',
     visible: false,
     layers: [
       'https://www.portlandmaps.com/arcgis/rest/services/Public/Transportation_System_Plan/MapServer/18',
@@ -127,41 +129,46 @@ export const layers = [
   })
 ];
 
-export const map = new EsriMap({
-  basemap: basemaps[1],
-  layers
-});
+export interface RootState {
+  debug: boolean;
+  message: string;
+  view?: __esri.MapView;
+  portlandmaps_api_key?: string;
+  map?: __esri.Map;
+  basemaps?: __esri.Basemap[];
+  layers: __esri.Layer[];
+}
 
-const state = {
+const state: RootState = {
   debug: true,
   message: 'Hello!',
-  view: null,
+  view: undefined,
+  map: undefined,
   portlandmaps_api_key: secrets.portlandmapsApiKey,
   basemaps,
-  map,
   layers
 };
 
-const mutations = {
-  setView(view) {
+const mutations: MutationTree<RootState> = {
+  setView(state, view) {
     state.view = view;
   },
-  setExtent(extent) {
+  setExtent(state, extent) {
     if (state.view) {
       state.view.extent = extent;
     }
   },
-  addLayer(layer) {
-    state.map.add(layer);
+  addLayer(state, layer) {
+    state.map?.add(layer);
   },
-  addGraphic(graphic) {
-    state.view.graphics.add(graphic);
+  addGraphic(state, graphic) {
+    state.view?.graphics.add(graphic);
   }
 };
 
 Vue.use(Vuex);
 
-const store = {
+const store: StoreOptions<RootState> = {
   state,
   mutations,
   modules: {
@@ -169,4 +176,4 @@ const store = {
   }
 };
 
-export default new Vuex.Store(store);
+export default new Vuex.Store<RootState>(store);

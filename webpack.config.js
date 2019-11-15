@@ -2,14 +2,15 @@ const path = require('path');
 const globby = require('globby');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const ArcGISPlugin = require('@arcgis/webpack-plugin');
-var FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
+const FriendlyErrorsWebpackPlugin = require('friendly-errors-webpack-plugin');
 
 module.exports = (env, argv) => ({
   entry: {
-    main: ['./source/_patterns/_index.js', '@dojo/framework/shim/Promise', './source/_patterns/_index.scss']
+    main: ['./source/_patterns/_index.ts', '@dojo/framework/shim/Promise', './source/_patterns/_index.scss']
   },
-  devtool: 'source-map',
+  devtool: 'cheap-eval-source-map',
   mode: process.env.NODE_ENV,
   stats: 'none',
   output: {
@@ -17,12 +18,9 @@ module.exports = (env, argv) => ({
     filename: '[name].bundle.js',
     publicPath: '../../js/'
   },
-  watchOptions: {
-    ignored: [
-      path.resolve(__dirname, 'node_modules'),
-      path.resolve(__dirname, 'images'),
-      path.resolve(__dirname, 'css')
-    ]
+  resolve: {
+    extensions: ['.vue', '.json', '.wasm', '.ts', '.js'],
+    modules: ['node_modules', path.resolve(__dirname, 'node_modules')]
   },
   plugins: [
     new ArcGISPlugin({
@@ -33,22 +31,107 @@ module.exports = (env, argv) => ({
       chunkFilename: '../css/[id].bundle.css'
     }),
     new VueLoaderPlugin(),
+    new ForkTsCheckerWebpackPlugin({
+      vue: true,
+      tslint: true,
+      formatter: 'codeframe',
+      checkSyntacticErrors: false
+    }),
     new FriendlyErrorsWebpackPlugin()
   ],
   module: {
+    noParse: /^(vue|vue-router|vuex|vuex-router-sync)$/,
     rules: [
       {
         test: /\.vue$/,
-        use: {
-          loader: 'vue-loader'
-        }
+        use: [
+          'cache-loader',
+          {
+            loader: 'vue-loader'
+          }
+        ]
+      },
+      {
+        test: /\.tsx?$/,
+        use: [
+          'cache-loader',
+          {
+            loader: 'ts-loader',
+            options: {
+              transpileOnly: true,
+              appendTsSuffixTo: [/\.vue$/]
+            }
+          },
+          'eslint-loader'
+        ],
+        exclude: file => /node_modules/.test(file) && !/\.vue\.ts/.test(file)
       },
       {
         test: /\.js$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader'
-        }
+        use: ['cache-loader', 'babel-loader', 'eslint-loader'],
+        exclude: file => /node_modules/.test(file) && !/\.vue\.js/.test(file)
+      },
+      {
+        test: /\.(png|jpe?g|gif|webp)(\?.*)?$/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 4096,
+              fallback: {
+                loader: 'file-loader',
+                options: {
+                  name: 'img/[name].[hash:8].[ext]'
+                }
+              }
+            }
+          }
+        ]
+      },
+      {
+        test: /\.(svg)(\?.*)?$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: 'img/[name].[hash:8].[ext]'
+            }
+          }
+        ]
+      },
+      {
+        test: /\.(mp4|webm|ogg|mp3|wav|flac|aac)(\?.*)?$/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 4096,
+              fallback: {
+                loader: 'file-loader',
+                options: {
+                  name: 'media/[name].[hash:8].[ext]'
+                }
+              }
+            }
+          }
+        ]
+      },
+      {
+        test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/i,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 4096,
+              fallback: {
+                loader: 'file-loader',
+                options: {
+                  name: 'fonts/[name].[hash:8].[ext]'
+                }
+              }
+            }
+          }
+        ]
       },
       {
         test: /\.(sa|sc)ss$/,

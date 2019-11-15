@@ -2,22 +2,29 @@ import qs from 'querystring';
 
 import axios from 'axios';
 
-import secrets from './.secrets.js';
+import secrets from './.secrets';
+import { MutationTree, ActionTree, Module } from 'vuex';
+import { RootState } from './tsp-store';
 
 const namespaced = true;
 
-const state = {
+export interface PortlandmapsState {
+  api_key?: string;
+  candidates?: any[];
+}
+
+const state: PortlandmapsState = {
   api_key: secrets.portlandmapsApiKey || undefined,
   candidates: undefined
 };
 
-const mutations = {
-  setCandidates(state, candidates) {
+const mutations: MutationTree<PortlandmapsState> = {
+  setCandidates(state, candidates?: any[]) {
     state.candidates = candidates;
   }
 };
 
-const actions = {
+const actions: ActionTree<PortlandmapsState, RootState> = {
   clearCandidates({ commit }) {
     commit('setCandidates', undefined);
   },
@@ -41,7 +48,7 @@ const actions = {
 
           commit(
             'setCandidates',
-            candidates.map(value => {
+            candidates.map((value: any) => {
               let a = {
                 id: value.attributes.id,
                 location: value.location,
@@ -69,4 +76,4 @@ export default {
   state,
   actions,
   mutations
-};
+} as Module<PortlandmapsState, RootState>;
