@@ -1,6 +1,3 @@
-# IDE folders
-.vscode
-
 # Mac OS X Finder
 .DS_Store
 
@@ -14,4 +11,4 @@ public
 dependencyGraph.json
 
 # Secrets
-/**/.secrets.js
+/**/.secrets.*

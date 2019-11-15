@@ -89,5 +89,227 @@
     { },
     { },
     { }
+  ],
+  "candidates": [
+    {
+      "location": {
+        "x": -1.3654421314E7,
+        "y": 5702752.238
+      },
+      "attributes": {
+        "city": "PORTLAND",
+        "jurisdiction": "PORTLAND",
+        "state": "OREGON",
+        "id": 55373,
+        "type": "intersection",
+        "county": "MULTNOMAH"
+      },
+      "address": "SE 6TH AVE AND SE MAIN ST",
+      "extent": {
+        "ymin": 5702751.988,
+        "ymax": 5702752.488,
+        "xmin": -1.3654421564E7,
+        "xmax": -1.3654421064E7
+      }
+    },
+    {
+      "location": {
+        "x": -1.3656680541E7,
+        "y": 5703189.23
+      },
+      "attributes": {
+        "city": "PORTLAND",
+        "jurisdiction": "PORTLAND",
+        "state": "OREGON",
+        "id": 53990,
+        "type": "intersection",
+        "county": "MULTNOMAH"
+      },
+      "address": "SW 6TH AVE AND SW MAIN ST",
+      "extent": {
+        "ymin": 5703188.98,
+        "ymax": 5703189.48,
+        "xmin": -1.3656680791E7,
+        "xmax": -1.3656680291E7
+      }
+    },
+    {
+      "location": {
+        "x": -1.3648801598E7,
+        "y": 5677960.729
+      },
+      "attributes": {
+        "city": "OREGON CITY",
+        "jurisdiction": "OREGON CITY",
+        "state": "OREGON",
+        "id": 318640,
+        "type": "intersection",
+        "county": "CLACKAMAS"
+      },
+      "address": "6TH ST AND MAIN ST",
+      "extent": {
+        "ymin": 5677960.479,
+        "ymax": 5677960.979,
+        "xmin": -1.3648801848E7,
+        "xmax": -1.3648801348E7
+      }
+    },
+    {
+      "location": {
+        "x": -1.3630007218E7,
+        "y": 5706615.613
+      },
+      "attributes": {
+        "city": "FAIRVIEW",
+        "jurisdiction": "FAIRVIEW",
+        "state": "OREGON",
+        "id": 251542,
+        "type": "intersection",
+        "county": "MULTNOMAH"
+      },
+      "address": "6TH ST AND MAIN ST",
+      "extent": {
+        "ymin": 5706615.363,
+        "ymax": 5706615.863,
+        "xmin": -1.3630007468E7,
+        "xmax": -1.3630006968E7
+      }
+    },
+    {
+      "location": {
+        "x": -1.3690154151E7,
+        "y": 5704169.091
+      },
+      "attributes": {
+        "city": "HILLSBORO",
+        "jurisdiction": "HILLSBORO",
+        "state": "OREGON",
+        "id": 274197,
+        "type": "intersection",
+        "county": "WASHINGTON"
+      },
+      "address": "NE 6TH AVE AND E MAIN ST",
+      "extent": {
+        "ymin": 5704168.841,
+        "ymax": 5704169.341,
+        "xmin": -1.3690154401E7,
+        "xmax": -1.3690153901E7
+      }
+    },
+    {
+      "location": {
+        "x": -1.3618127935E7,
+        "y": 5668000.001
+      },
+      "attributes": {
+        "city": "ESTACADA",
+        "jurisdiction": "ESTACADA",
+        "state": "OREGON",
+        "id": 312309,
+        "type": "intersection",
+        "county": "CLACKAMAS"
+      },
+      "address": "NE 6TH AVE AND NE MAIN ST",
+      "extent": {
+        "ymin": 5667999.751,
+        "ymax": 5668000.251,
+        "xmin": -1.3618128185E7,
+        "xmax": -1.3618127685E7
+      }
+    },
+    {
+      "location": {
+        "x": -1.3690152913E7,
+        "y": 5704270.603
+      },
+      "attributes": {
+        "city": "HILLSBORO",
+        "jurisdiction": "HILLSBORO",
+        "state": "OREGON",
+        "id": 274179,
+        "type": "intersection",
+        "county": "WASHINGTON"
+      },
+      "address": "NE 6TH AVE AND NE MAIN-LINCOLN ALY",
+      "extent": {
+        "ymin": 5704270.353,
+        "ymax": 5704270.853,
+        "xmin": -1.3690153163E7,
+        "xmax": -1.3690152663E7
+      }
+    },
+    {
+      "location": {
+        "x": -1.3690154151E7,
+        "y": 5704169.091
+      },
+      "attributes": {
+        "city": "HILLSBORO",
+        "jurisdiction": "HILLSBORO",
+        "state": "OREGON",
+        "id": 274197,
+        "type": "intersection",
+        "county": "WASHINGTON"
+      },
+      "address": "SE 6TH AVE AND E MAIN ST",
+      "extent": {
+        "ymin": 5704168.841,
+        "ymax": 5704169.341,
+        "xmin": -1.3690154401E7,
+        "xmax": -1.3690153901E7
+      }
+    },
+    {
+      "location": {
+        "x": -1.3671027696E7,
+        "y": 5697896.003
+      },
+      "attributes": {
+        "city": "BEAVERTON",
+        "jurisdiction": "BEAVERTON",
+        "state": "OREGON",
+        "id": 264302,
+        "type": "intersection",
+        "county": "WASHINGTON"
+      },
+      "address": "SW 6TH ST AND SW MAIN AVE",
+      "extent": {
+        "ymin": 5697895.753,
+        "ymax": 5697896.253,
+        "xmin": -1.3671027946E7,
+        "xmax": -1.3671027446E7
+      }
+    },
+    {
+      "location": {
+        "x": -1.3647244E7,
+        "y": 5702406.0
+      },
+      "attributes": {
+        "city": null,
+        "jurisdiction": null,
+        "state": null,
+        "id": 891,
+        "type": "landmark",
+        "county": null,
+        "location_type": "PARK"
+      },
+      "address": "MT TABOR PARK",
+      "extent": {
+        "ymin": 5702405.75,
+        "ymax": 5702406.25,
+        "xmin": -1.364724425E7,
+        "xmax": -1.364724375E7
+      }
+    },
+    {
+      "address": "1965 SE 23RD AVE, Portland, OREGON, 97214",
+      "location": {
+        "x": -13652499.055439565,
+        "y": 5701973.9207931003
+      },
+      "score": 100,
+      "attributes": {}
+    }
   ]
 }

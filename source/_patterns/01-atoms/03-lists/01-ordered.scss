@@ -1,7 +1,6 @@
 ol {
-    @apply list-decimal list-inside;
-
-    ol {
-        @apply ml-4;
-    }
+  @apply list-decimal list-outside pl-6;
+  ol {
+    @apply pl-6;
+  }
 }
