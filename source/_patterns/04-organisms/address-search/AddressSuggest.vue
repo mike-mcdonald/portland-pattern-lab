@@ -1,8 +1,11 @@
 <template>
   <section>
-    <div class="relative bg-fog-200 text-fog-900">
+    <div class="relative bg-fog-200 text-fog-900 text-base">
       <form
-        class="flex items-center border shadow rounded outline-none focus:shadow-outline "
+        title="Search"
+        role="search"
+        action="/"
+        class="flex flex-no-wrap md:flex-wrap lg:flex-no-wrap items-center border shadow rounded outline-none focus:shadow-outline "
         @submit.prevent="findCandidates(search)"
       >
         <label for="addressInput" class="sr-only">Address</label>
@@ -10,13 +13,13 @@
           id="addressInput"
           v-model="search"
           name="addressInput"
-          type="text"
+          type="search"
           placeholder="Enter an address to search"
           required="required"
-          class="w-full px-3 py-2 rounded-l bg-fog-200"
+          class="w-full px-3 py-2 md:border-b lg:border-0 rounded-l md:rounded-l-0 lg:rounded-l bg-fog-200"
         />
-        <section class="flex flex-row-reverse">
-          <button aria-label="Search" class="p-3">
+        <section class="flex flex-row-reverse ml-auto">
+          <button aria-label="Search" class="m-1 px-3 py-2 border-l">
             <Search />
           </button>
           <transition name="fade">
@@ -34,26 +37,21 @@
           </transition>
         </section>
       </form>
-      <div class="-mt-1 p-1">
-        <div
-          v-for="candidate in candidates"
-          :key="candidate.id"
-          class="w-full border-b border-l border-r"
-          @click="handleClick(candidate)"
-        >
-          <div role="button" href="#" class="p-2 flex flex-wrap cursor-pointer hover:bg-blue-100">
+      <div class="-mt-1 pt-1">
+        <div v-for="candidate in candidates" :key="candidate.id" class="w-full border-b border-l border-r">
+          <div role="button" href="#" class="p-2 cursor-pointer hover:bg-blue-100" @click="handleClick(candidate)">
             <span
               v-if="candidate.type"
-              class="flex items-center flex-initial rounded-full bg-blue-500 text-white uppercase px-2 py-1 text-xs font-bold mx-2"
-              >{{ candidate.type }}</span
+              class="mx-2 px-2 rounded-full bg-blue-500 text-white text-xs font-bold uppercase"
             >
-
-            <div class="mx-2">
+              {{ candidate.type }}
+            </span>
+            <div class="mx-2 text-sm">
               {{ candidate.name }}
             </div>
-            <div class="flex flex-1 items-center mx-2">
-              <span class="uppercase text-xs font-bold">{{ candidate.city }},</span>
-              <span class="uppercase text-xs font-bold">{{ candidate.state }}</span>
+            <div class="flex flex-1 items-center mx-2 text-xs font-bold uppercase">
+              <span v-if="candidate.city" class="">{{ candidate.city }},</span>
+              <span class="">{{ candidate.state }}</span>
             </div>
           </div>
         </div>
