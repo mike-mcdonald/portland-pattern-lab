@@ -1,6 +1,5 @@
 import Vue from 'vue';
 import Map from './Map.vue';
-import './esriconfig';
 
 import store from '../../../_data/tsp-store';
 
@@ -11,4 +10,3 @@ if (document.getElementById('classification-mapid')) {
     render: h => h(Map)
   }).$mount('#classification-mapid');
 }
-var t = {};

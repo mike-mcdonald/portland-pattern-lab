@@ -8,7 +8,7 @@ import GroupLayer from 'esri/layers/GroupLayer';
 
 import portlandmaps from './portlandmaps-module';
 
-import secrets from './.secrets';
+import data from './data.json';
 
 export const basemaps = [
   'https://www.portlandmaps.com/arcgis/rest/services/Public/Basemap_Color_Complete/MapServer',
@@ -130,23 +130,19 @@ export const layers = [
 ];
 
 export interface RootState {
-  debug: boolean;
-  message: string;
   view?: __esri.MapView;
-  portlandmaps_api_key?: string;
   map?: __esri.Map;
   basemaps?: __esri.Basemap[];
   layers: __esri.Layer[];
+  streets?: any[];
 }
 
 const state: RootState = {
-  debug: true,
-  message: 'Hello!',
   view: undefined,
   map: undefined,
-  portlandmaps_api_key: secrets.portlandmapsApiKey,
   basemaps,
-  layers
+  layers,
+  streets: data.streets
 };
 
 const mutations: MutationTree<RootState> = {

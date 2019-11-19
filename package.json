@@ -7,8 +7,8 @@
     "pl:install": "patternlab install --config ./patternlab-config.json",
     "pl:dev": "patternlab serve --config ./patternlab-config.json",
     "pl:build": "patternlab build --config ./patternlab-config.json",
-    "webpack:dev": "webpack --mode development --watch",
-    "webpack:build": "webpack --mode production --no-progress",
+    "webpack:dev": "webpack --config webpack.dev.config.js",
+    "webpack:build": "webpack --config webpack.prod.config.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -79,6 +79,7 @@
     "vue-loader": "^15.7.2",
     "vue-template-compiler": "^2.6.10",
     "webpack": "^4.41.2",
-    "webpack-cli": "^3.3.10"
+    "webpack-cli": "^3.3.10",
+    "webpack-merge": "^4.2.2"
   }
 }

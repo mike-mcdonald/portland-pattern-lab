@@ -311,5 +311,222 @@
       "score": 100,
       "attributes": {}
     }
+  ],
+  "streets": [
+    {
+      "id": "TP01-0003493",
+      "name": "SW BROADWAY AVE",
+      "block": 800,
+      "geometry": {
+        "coordinates": [
+          [
+            -122.67999634458621,
+            45.518685478360595
+          ],
+          [
+            -122.68035793265776,
+            45.51801974109829
+          ]
+        ]
+      },
+      "classifications": {
+        "traffic": "TA",
+        "transit": "LS",
+        "bicycle": "MCB",
+        "pedestrian": "CW",
+        "freight": "LS",
+        "emergency": "MAJ",
+        "design": "CIMS",
+        "greenscape": "N"
+      },
+      "projects": [
+        {
+          "id": "TP04-0000397",
+          "name": "Broadway Multimodal Streetscape Improvements",
+          "number": 20128,
+          "description": "Enhance the existing bikeway on Broadway. Includes the construction of a protected bikeway, signal improvements, short-term parking and loading zones, and shorter pedestrian crossings. Consider a protected intersection at Broadway/Burnside and a northbound bicycle facility from Oak to Hoyt during project design.",
+          "estimatedCost": 2000000,
+          "estimatedTimeframe": "1-10_YRS"
+        },
+        {
+          "id": "TP03-0000059",
+          "name": "Hayden Island Street Network Improvements, Phase 1",
+          "number": 30018,
+          "description": "Implement street plan for Hayden Island to improve circulation and access for all modes.",
+          "estimatedCost": 1834600,
+          "estimatedTimeframe": "11-20_YRS"
+        },
+        {
+          "id": "TP03-0000059",
+          "name": "Central City TSM",
+          "number": 20016,
+          "description": "Implement Central City TSM improvements to arterials.",
+          "estimatedCost": 3250000,
+          "estimatedTimeframe": "11-20_YRS"
+        },
+        {
+          "id": "TP03-0000061",
+          "name": "Portland Streetcar Operational Improvements",
+          "number": 20125,
+          "description": "Design and implement projects to improve the operational efficiency of Portland Streetcar.",
+          "estimatedCost": 1000000,
+          "estimatedTimeframe": "1-10_YRS"
+        },
+        {
+          "id": "TP03-0000065",
+          "name": "Bicycle / Rail Safety Improvements",
+          "number": 20202,
+          "description": "Install pavement markings and signage on rail streets where needed to improve bicycle safety and comfort.",
+          "estimatedCost": 250000,
+          "estimatedTimeframe": "1-10_YRS"
+        }
+      ]
+    },
+    {
+      "id": "TP01-0003494",
+      "name": "SW TAYLOR ST",
+      "block": 700,
+      "geometry": {
+        "coordinates": [
+          [
+            -122.68035793265776,
+            45.51801974109829
+          ],
+          [
+            -122.68132320746483,
+            45.5182784789684
+          ]
+        ]
+      },
+      "classifications": {
+        "traffic": "TA",
+        "transit": "LS",
+        "bicycle": "CB",
+        "pedestrian": "CW",
+        "freight": "LS",
+        "emergency": "MAJ",
+        "design": "NMS",
+        "greenscape": "N"
+      },
+      "projects": [
+        {
+          "id": "TP04-0000397",
+          "name": "Broadway Multimodal Streetscape Improvements",
+          "number": 20128,
+          "description": "Enhance the existing bikeway on Broadway. Includes the construction of a protected bikeway, signal improvements, short-term parking and loading zones, and shorter pedestrian crossings. Consider a protected intersection at Broadway/Burnside and a northbound bicycle facility from Oak to Hoyt during project design.",
+          "estimatedCost": 2000000,
+          "estimatedTimeframe": "1-10_YRS"
+        },
+        {
+          "id": "TP04-0000401",
+          "name": "Salmon / Taylor Bikeway",
+          "number": 20132,
+          "description": "Design and implement bikeways on Salmon and Taylor Streets to create a safe and comfortable east-west bicycle connection through the Central City.",
+          "estimatedCost": 1000000,
+          "estimatedTimeframe": "1-10_YRS"
+        },
+        {
+          "id": "TP03-0000059",
+          "name": "Hayden Island Street Network Improvements, Phase 1",
+          "number": 30018,
+          "description": "Implement street plan for Hayden Island to improve circulation and access for all modes.",
+          "estimatedCost": 1834600,
+          "estimatedTimeframe": "11-20_YRS"
+        },
+        {
+          "id": "TP03-0000059",
+          "name": "Central City TSM",
+          "number": 20016,
+          "description": "Implement Central City TSM improvements to arterials.",
+          "estimatedCost": 3250000,
+          "estimatedTimeframe": "11-20_YRS"
+        },
+        {
+          "id": "TP03-0000061",
+          "name": "Portland Streetcar Operational Improvements",
+          "number": 20125,
+          "description": "Design and implement projects to improve the operational efficiency of Portland Streetcar.",
+          "estimatedCost": 1000000,
+          "estimatedTimeframe": "1-10_YRS"
+        },
+        {
+          "id": "TP03-0000065",
+          "name": "Bicycle / Rail Safety Improvements",
+          "number": 20202,
+          "description": "Install pavement markings and signage on rail streets where needed to improve bicycle safety and comfort.",
+          "estimatedCost": 250000,
+          "estimatedTimeframe": "1-10_YRS"
+        }
+      ]
+    },
+    {
+      "id": "TP01-0003516",
+      "name": "SW YAMHILL ST",
+      "block": 400,
+      "geometry": {
+        "coordinates": [
+          [
+            -122.67693829789935,
+            45.51785451643298
+          ],
+          [
+            -122.67796169819692,
+            45.51814057316109
+          ]
+        ]
+      },
+      "classifications": {
+        "traffic": "LS",
+        "transit": "RTMTP",
+        "bicycle": "LS",
+        "pedestrian": "CCTP",
+        "freight": "LS",
+        "emergency": "MIN",
+        "design": "CIMS",
+        "greenscape": "N"
+      },
+      "projects": [
+        {
+          "id": "TP04-0000519",
+          "name": "SW/NW 4th Ave Bikeway",
+          "number": 20200,
+          "description": "Design and implement a protected bikeway on 4th Ave to provide a bikeway couplet with Broadway connecting PSU, Downtown, and Old Town / Chinatown. ",
+          "estimatedCost": 1000000,
+          "estimatedTimeframe": "1-10_YRS"
+        },
+        {
+          "id": "TP03-0000059",
+          "name": "Hayden Island Street Network Improvements, Phase 1",
+          "number": 30018,
+          "description": "Implement street plan for Hayden Island to improve circulation and access for all modes.",
+          "estimatedCost": 1834600,
+          "estimatedTimeframe": "11-20_YRS"
+        },
+        {
+          "id": "TP03-0000059",
+          "name": "Central City TSM",
+          "number": 20016,
+          "description": "Implement Central City TSM improvements to arterials.",
+          "estimatedCost": 3250000,
+          "estimatedTimeframe": "11-20_YRS"
+        },
+        {
+          "id": "TP03-0000061",
+          "name": "Portland Streetcar Operational Improvements",
+          "number": 20125,
+          "description": "Design and implement projects to improve the operational efficiency of Portland Streetcar.",
+          "estimatedCost": 1000000,
+          "estimatedTimeframe": "1-10_YRS"
+        },
+        {
+          "id": "TP03-0000065",
+          "name": "Bicycle / Rail Safety Improvements",
+          "number": 20202,
+          "description": "Install pavement markings and signage on rail streets where needed to improve bicycle safety and comfort.",
+          "estimatedCost": 250000,
+          "estimatedTimeframe": "1-10_YRS"
+        }
+      ]
+    }
   ]
 }
