@@ -1,0 +1,92 @@
+{
+  "sections": [
+    {
+      "id": "introduction",
+      "name": "Introduction",
+      "number": 1,
+      "depth": 1,
+      "sections": [
+        {
+          "id": "elements-of-the-tsp",
+          "number": 1,
+          "depth": 2,
+          "name": "Elements of the TSP"
+        },
+        {
+          "id": "transportation-system-plan-updates",
+          "number": 2,
+          "depth": 2,
+          "name": "Transportation System Plan Updates"
+        },
+        {
+          "id": "regulatory-framework",
+          "number": 3,
+          "depth": 2,
+          "name": "Regulatory Framework"
+        }
+        ,
+        {
+          "id": "seven-outcomes",
+          "number": 4,
+          "depth": 2,
+          "name": "Seven Outcomes"
+        }
+      ],
+    },
+    {
+      "id": "goals-and-policies",
+      "name": "Goals and Policies",
+      "number": 2,
+      "depth": 1,
+      "sections": [
+        {
+          "id": "goals",
+          "name": "Transportation Goals",
+          "number": 1,
+          "depth": 2
+        },
+        {
+          "id": "policies",
+          "name": "Policies",
+          "number": 2,
+          "depth": 2
+        }
+      ]
+    },
+    {
+      "id": "classifications",
+      "name": "Classifications",
+      "number": 6,
+      "depth": 1,
+      "sections": [
+        {
+          "id": "pedestrian-classification-descriptions",
+          "name": "Pedestrian Classifications",
+          "number": 1,
+          "depth": 2,
+          "sections": [
+
+          ]
+        },
+        {
+          "id": "bicycle-classification-descriptions",
+          "name": "Bicycle Classifications",
+          "number": 2,
+          "depth": 2,
+        },
+        {
+          "id": "street-design-classification-descriptions",
+          "name": "Street Design Classifications",
+          "number": 3,
+          "depth": 2,
+        },
+        {
+          "id": "transit-classification-descriptions",
+          "name": "Transit Classifications",
+          "number": 4,
+          "depth": 2,
+        }
+      ]
+    }
+  ]
+}

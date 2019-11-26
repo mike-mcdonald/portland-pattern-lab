@@ -1,5 +1,5 @@
 {
-  "chapters": [
+  "sections": [
     {
       "id": "introduction",
       "name": "Introduction",
@@ -19,8 +19,7 @@
           "id": "regulatory-framework",
           "number": 3,
           "name": "Regulatory Framework"
-        }
-        ,
+        },
         {
           "id": "seven-outcomes",
           "number": 4,

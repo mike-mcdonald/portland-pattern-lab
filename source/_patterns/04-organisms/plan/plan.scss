@@ -2,6 +2,12 @@
   .translate-r-2px {
     transform: translateX(2px) !important;
   }
+  .translate-t-2px {
+    transform: translateY(-2px) !important;
+  }
+  .translate-tr-2px {
+    transform: translateX(2px) translateY(-2px) !important;
+  }
   .transition-fast {
     transition: all .2s ease !important;
   }

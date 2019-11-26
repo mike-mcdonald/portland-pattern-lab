@@ -1,117 +1,39 @@
 {% include "@cells/header/header.twig" %}
-
 <main
-  class="container mx-auto my-4 px-2">
-  <nav
-    class="block md:hidden">
-    <ol
-      class="list-none p-0">
-      {% for index, chapter in chapters %}
-        {% set classes = [
-            'flex',
-            'items-center',
-            'w-full',
-            'p-2',
-            'border-0',
-            index == 0 ? 'bg-blue-500',
-            index == 0 ? 'text-white',
-            index != 0 ? 'hover:bg-blue-100',
-          ] %}
-        <li
-          role="button"
-          tabindex="0"
-          class="my-2">
-          <a
-            href="#"
-            class="border-0 text-fog-800 hover:text-blue-800">
-            <span
-              class="font-bold">{{ chapter.name }}</span>
-          </a>
-          {% if chapter.sections is not empty %}
-            <ol
-              class="list-none">
-              {% for index, section in chapter.sections %}
-                <li
-                  role="button"
-                  tabindex="0"
-                  class="my-2">
-                  <a
-                    href="#{{ section.id }}"
-                    class="border-0 text-fog-800 hover:text-blue-800">
-
-                    <span>{{ section.name }}</span>
-                  </a>
-                </li>
-              {% endfor %}
-            </ol>
-          {% endif %}
-        </li>
-      {% endfor %}
-    </ol>
-  </nav>
-  <section>
-    <header>
-      <h1
-        class="text-4xl pb-3 border-b border-black">{{ chapters[0].name }}</h1>
-    </header>
-    <section
-      class="flex flex-col-reverse md:flex-row justify-between">
-      <article
-        class="w-full md:w-2/3 pr-2">
-        {% for index, chapter in chapters %}
-          {% if chapter.content %}
-            {{ chapter.content }}
-          {% endif %}
-        {% endfor %}
-      </article>
-      <nav
-        class="hidden md:block overflow-y-auto sticky top-10 max-h-(screen-16)">
-        <ol
-          class="list-none p-0">
-          {% for index, chapter in chapters %}
-            {% set classes = [
-            'flex',
-            'items-center',
-            'w-full',
-            'p-2',
-            'border-0',
-            index == 0 ? 'bg-blue-500',
-            index == 0 ? 'text-white',
-            index != 0 ? 'hover:bg-blue-100',
-          ] %}
-            <li
-              role="button"
-              tabindex="0"
-              class="my-2">
-              <a
-                href="#"
-                class="border-0 text-fog-800 hover:text-blue-800">
-                <span
-                  class="font-bold">{{ chapter.name }}</span>
-              </a>
-              {% if chapter.sections is not empty %}
-                <ol
-                  class="list-none">
-                  {% for index, section in chapter.sections %}
-                    <li
-                      role="button"
-                      tabindex="0"
-                      class="my-2">
-                      <a
-                        href="#{{ section.id }}"
-                        class="border-0 text-fog-800 hover:text-blue-800">
-
-                        <span>{{ section.name }}</span>
-                      </a>
-                    </li>
-                  {% endfor %}
-                </ol>
-              {% endif %}
-            </li>
-          {% endfor %}
-        </ol>
-      </nav>
-    </section>
-  </section>
+	class="container mx-auto my-4 px-2">
+  {% include "@organisms/plan/section-list.twig" with {
+    wrapper_classes: [
+      'block',
+      'md:hidden',
+  ]} %}
+	<section
+		class="flex justify-between">
+		<div
+			class="w-full md:w-2/3">
+			<header>
+				<h1
+					class="text-4xl pb-3 border-b border-black">{{ sections[0].name }}</h1>
+			</header>
+			<section
+				class="flex flex-col-reverse md:flex-row justify-between">
+				<article>
+					{% for index, section in sections %}
+						{% if section.content %}
+							{{ section.content }}
+						{% endif %}
+					{% endfor %}
+				</article>
+			</section>
+		</div>
+    {% include "@organisms/plan/section-list.twig" with {
+      wrapper_classes: [
+        'hidden',
+        'md:block',
+        'overflow-y-auto',
+        'sticky',
+        'top-10',
+        'max-h-(screen-16)',
+      ]} %}
+	</section>
 </main>
 {% include "@cells/footer/footer.twig" %}

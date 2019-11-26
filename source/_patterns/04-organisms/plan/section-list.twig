@@ -1,0 +1,38 @@
+{% set wrapper_classes = wrapper_classes|default([]) %}
+<nav
+	class="{{ wrapper_classes|join(' ') }}">
+	<ol
+		class="list-none p-0 text-fog-800">
+		{% for index, section in sections %}
+			{% set item_classes = item_classes|default([
+        'border-0',
+        'hover:text-blue-800',
+				section.depth == 1 ? 'font-bold': 'font-base'
+      ]) %}
+			<li
+				role="button"
+				tabindex="0"
+				class="my-2 transition-fast hover:translate-tr-2px font-bold">
+				<a
+					href="#{{ section.id }}"
+					class="{{ item_classes|join(' ') }}">
+					<span>{{ section.name }}</span>
+				</a>
+				{% if section.sections is not empty %}
+						{% for index, section in section.sections %}
+							<li
+								role="button"
+								tabindex="0"
+								class="my-2 ml-2 transition-fast hover:translate-tr-2px font-base">
+								<a
+									href="#{{ section.id }}"
+									class="{{ item_classes|join(' ') }}">
+									<span>{{ section.name }}</span>
+								</a>
+							</li>
+						{% endfor %}
+				{% endif %}
+			</li>
+		{% endfor %}
+	</ol>
+</nav>
