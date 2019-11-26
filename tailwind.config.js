@@ -28,6 +28,10 @@ function shade(color, intensity) {
   return Color([r, g, b]);
 }
 
+function mix(color1, color2, weight) {
+  return Color(color1).mix(Color(color2), weight);
+}
+
 function generateColors(colorHex) {
   color = Color(colorHex);
 
@@ -63,7 +67,7 @@ module.exports = {
       transparent: 'transparent',
       inherit: 'inherit',
       current: 'currentColor',
-      black: '#22292f',
+      black: mix('#22292f', mix('#FF6666', '#005CB9', 0.5).hex(), 0.1).hex(),
       white: '#ffffff',
       gray: {
         '100': '#f5f5f5',
@@ -83,7 +87,8 @@ module.exports = {
       blue: generateColors('#005CB9'),
       marine: generateColors('#99CCCC'),
       tangerine: generateColors('#FCB040'),
-      fog: generateColors('#E7E8EA')
+      fog: generateColors('#E7E8EA'),
+      purple: generateColors(mix('#FF6666', '#005CB9', 0.5).hex())
     },
     extend: {
       height: {
