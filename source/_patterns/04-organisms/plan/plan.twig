@@ -1,7 +1,20 @@
+{% macro sections(sections) %}
+    {% import _self as macros %}
+    {% for section in sections %}
+      <a id="{{ section.id }}" href="#{{ section.id }}"></a>
+      {{ section.content }}
+      {% if section.sections is not empty %}
+        {{ macros.sections(section.sections) }}
+      {% endif %}
+    {% endfor %}
+{% endmacro %}
+
+{% import _self as macros %}
+
 {% include "@cells/header/header.twig" %}
 <main
 	class="container mx-auto my-4 px-2">
-  {% include "@organisms/plan/section-list.twig" with {
+	{% include "@organisms/plan/section-list.twig" with {
     wrapper_classes: [
       'block',
       'md:hidden',
@@ -10,22 +23,14 @@
 		class="flex justify-between">
 		<div
 			class="w-full md:w-2/3">
-			<header>
-				<h1
-					class="text-4xl pb-3 border-b border-black">{{ sections[0].name }}</h1>
-			</header>
 			<section
 				class="flex flex-col-reverse md:flex-row justify-between">
 				<article>
-					{% for index, section in sections %}
-						{% if section.content %}
-							{{ section.content }}
-						{% endif %}
-					{% endfor %}
+          {{ macros.sections(sections) }}
 				</article>
 			</section>
 		</div>
-    {% include "@organisms/plan/section-list.twig" with {
+		{% include "@organisms/plan/section-list.twig" with {
       wrapper_classes: [
         'hidden',
         'md:block',

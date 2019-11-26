@@ -2,91 +2,700 @@
   "sections": [
     {
       "id": "introduction",
-      "name": "Introduction",
       "number": 1,
-      "depth": 1,
-      "sections": [
-        {
-          "id": "elements-of-the-tsp",
-          "number": 1,
-          "depth": 2,
-          "name": "Elements of the TSP"
-        },
-        {
-          "id": "transportation-system-plan-updates",
-          "number": 2,
-          "depth": 2,
-          "name": "Transportation System Plan Updates"
-        },
-        {
-          "id": "regulatory-framework",
-          "number": 3,
-          "depth": 2,
-          "name": "Regulatory Framework"
-        }
-        ,
-        {
-          "id": "seven-outcomes",
-          "number": 4,
-          "depth": 2,
-          "name": "Seven Outcomes"
-        }
-      ],
+      "depth": 0,
+      "tree": [],
+      "name": "Introduction",
+      "sections": []
     },
     {
-      "id": "goals-and-policies",
-      "name": "Goals and Policies",
+      "id": "transportation-goals-and-policies",
       "number": 2,
-      "depth": 1,
+      "depth": 0,
+      "tree": [],
+      "name": "Transportation Goals and Policies",
+      "sections": []
+    },
+    {
+      "id": "public-facilities-services-goals-policies",
+      "number": 3,
+      "depth": 0,
+      "tree": [],
+      "name": "Public Facilities and Services Goals and Policies",
       "sections": [
         {
-          "id": "goals",
-          "name": "Transportation Goals",
+          "id": "public-facilities-services-goals",
           "number": 1,
-          "depth": 2
+          "depth": 1,
+          "tree": [
+            3
+          ],
+          "name": "Public Facilities and Services Goals",
+          "sections": []
         },
         {
-          "id": "policies",
-          "name": "Policies",
+          "id": "public-facilities-services-policies",
           "number": 2,
-          "depth": 2
+          "depth": 1,
+          "tree": [
+            3
+          ],
+          "name": "Public Facilities and Services Policies",
+          "sections": []
         }
       ]
     },
     {
-      "id": "classifications",
-      "name": "Classifications",
+      "id": "urban-forms-goals-policies",
+      "number": 4,
+      "depth": 0,
+      "tree": [],
+      "name": "Urban Form Goals and Policies",
+      "sections": [
+        {
+          "id": "urban-form-goals",
+          "number": 1,
+          "depth": 1,
+          "tree": [
+            4
+          ],
+          "name": "Urban Form Goals",
+          "sections": []
+        },
+        {
+          "id": "urban-form-policies",
+          "number": 2,
+          "depth": 1,
+          "tree": [
+            4
+          ],
+          "name": "Urban Form Policies",
+          "sections": []
+        }
+      ]
+    },
+    {
+      "id": null,
+      "number": 5,
+      "depth": 0,
+      "tree": [],
+      "name": null,
+      "sections": [
+        {
+          "id": "design-development-goals",
+          "number": 1,
+          "depth": 1,
+          "tree": [
+            5
+          ],
+          "name": "Design and Development Goals",
+          "sections": []
+        },
+        {
+          "id": "design-development-policies",
+          "number": 2,
+          "depth": 1,
+          "tree": [
+            5
+          ],
+          "name": "Design and Development Policies",
+          "sections": []
+        }
+      ]
+    },
+    {
+      "id": "street-classification-descriptions",
       "number": 6,
-      "depth": 1,
+      "depth": 0,
+      "tree": [],
+      "name": "Street Classification Descriptions",
       "sections": [
         {
           "id": "pedestrian-classification-descriptions",
-          "name": "Pedestrian Classifications",
           "number": 1,
-          "depth": 2,
+          "depth": 1,
+          "tree": [
+            6
+          ],
+          "name": "Pedestrian Classification Descriptions",
           "sections": [
-
+            {
+              "id": "pedestrian-districts",
+              "number": 1,
+              "depth": 2,
+              "tree": [
+                6,
+                1
+              ],
+              "name": "Pedestrian Districts",
+              "sections": []
+            },
+            {
+              "id": "pedestrian-transit-streets",
+              "number": 2,
+              "depth": 2,
+              "tree": [
+                6,
+                1
+              ],
+              "name": "Pedestrian-Transit Streets",
+              "sections": []
+            },
+            {
+              "id": "city-walkway",
+              "number": 3,
+              "depth": 2,
+              "tree": [
+                6,
+                1
+              ],
+              "name": "City Walkways",
+              "sections": []
+            },
+            {
+              "id": "off-street-path",
+              "number": 4,
+              "depth": 2,
+              "tree": [
+                6,
+                1
+              ],
+              "name": "Off-Street Paths",
+              "sections": []
+            },
+            {
+              "id": "local-service-walkway",
+              "number": 5,
+              "depth": 2,
+              "tree": [
+                6,
+                1
+              ],
+              "name": "Local Service Walkways",
+              "sections": []
+            }
           ]
         },
         {
-          "id": "bicycle-classification-descriptions",
-          "name": "Bicycle Classifications",
+          "id": "bicycle-classifications",
           "number": 2,
-          "depth": 2,
-        },
-        {
-          "id": "street-design-classification-descriptions",
-          "name": "Street Design Classifications",
-          "number": 3,
-          "depth": 2,
+          "depth": 1,
+          "tree": [
+            6
+          ],
+          "name": "Bicycle Classification Descriptions",
+          "sections": [
+            {
+              "id": "major-city-bikeway",
+              "number": 1,
+              "depth": 2,
+              "tree": [
+                6,
+                2
+              ],
+              "name": "Major City Bikeways",
+              "sections": []
+            },
+            {
+              "id": "city-bikeway",
+              "number": 2,
+              "depth": 2,
+              "tree": [
+                6,
+                2
+              ],
+              "name": "City Bikeways",
+              "sections": []
+            },
+            {
+              "id": "local-service-bikeway",
+              "number": 3,
+              "depth": 2,
+              "tree": [
+                6,
+                2
+              ],
+              "name": "Local Service Bikeways",
+              "sections": []
+            },
+            {
+              "id": "bicycle-district",
+              "number": 4,
+              "depth": 2,
+              "tree": [
+                6,
+                2
+              ],
+              "name": "Bicycle Districts",
+              "sections": []
+            }
+          ]
         },
         {
           "id": "transit-classification-descriptions",
-          "name": "Transit Classifications",
+          "number": 3,
+          "depth": 1,
+          "tree": [
+            6
+          ],
+          "name": "Transit Classification Descriptions",
+          "sections": [
+            {
+              "id": "regional-transitway",
+              "number": 1,
+              "depth": 2,
+              "tree": [
+                6,
+                3
+              ],
+              "name": "Regional Transitways",
+              "sections": []
+            },
+            {
+              "id": "major-transit-priority-street",
+              "number": 2,
+              "depth": 2,
+              "tree": [
+                6,
+                3
+              ],
+              "name": "Major Transit Priority Streets",
+              "sections": []
+            },
+            {
+              "id": "transit-access-street",
+              "number": 3,
+              "depth": 2,
+              "tree": [
+                6,
+                3
+              ],
+              "name": "Transit Access Streets",
+              "sections": []
+            },
+            {
+              "id": "local-service-transit-street",
+              "number": 4,
+              "depth": 2,
+              "tree": [
+                6,
+                3
+              ],
+              "name": "Local Service Transit Streets",
+              "sections": []
+            },
+            {
+              "id": "intercity-passenger-rail",
+              "number": 5,
+              "depth": 2,
+              "tree": [
+                6,
+                3
+              ],
+              "name": "Intercity Passenger Rail",
+              "sections": []
+            }
+          ]
+        },
+        {
+          "id": "freight-classification-descriptions",
           "number": 4,
-          "depth": 2,
+          "depth": 1,
+          "tree": [
+            6
+          ],
+          "name": "Freight Classification Descriptions",
+          "sections": [
+            {
+              "id": "freight-distrcts",
+              "number": 1,
+              "depth": 2,
+              "tree": [
+                6,
+                4
+              ],
+              "name": "Freign Districts",
+              "sections": []
+            },
+            {
+              "id": "regional-truckway",
+              "number": 2,
+              "depth": 2,
+              "tree": [
+                6,
+                4
+              ],
+              "name": "Regional Truckways",
+              "sections": []
+            },
+            {
+              "id": "priority-truck-street",
+              "number": 3,
+              "depth": 2,
+              "tree": [
+                6,
+                4
+              ],
+              "name": "Priority Truck Streets",
+              "sections": []
+            },
+            {
+              "id": "major-truck-street",
+              "number": 4,
+              "depth": 2,
+              "tree": [
+                6,
+                4
+              ],
+              "name": "Major Truck Streets",
+              "sections": []
+            },
+            {
+              "id": "truck-access-street",
+              "number": 5,
+              "depth": 2,
+              "tree": [
+                6,
+                4
+              ],
+              "name": "Truck Access Streets",
+              "sections": []
+            },
+            {
+              "id": "passenger-intermodal-facility",
+              "number": 6,
+              "depth": 2,
+              "tree": [
+                6,
+                4
+              ],
+              "name": "Passenger Intermodal Facilities",
+              "sections": []
+            },
+            {
+              "id": "local-service-truck-street",
+              "number": 7,
+              "depth": 2,
+              "tree": [
+                6,
+                4
+              ],
+              "name": "Local Service Truck Streets",
+              "sections": []
+            },
+            {
+              "id": "railroad-main-line",
+              "number": 8,
+              "depth": 2,
+              "tree": [
+                6,
+                4
+              ],
+              "name": "Railroad Main Lines",
+              "sections": []
+            },
+            {
+              "id": "railroad-branch-line",
+              "number": 9,
+              "depth": 2,
+              "tree": [
+                6,
+                4
+              ],
+              "name": "Railroad Branch Lines",
+              "sections": []
+            },
+            {
+              "id": "frieght-facility",
+              "number": 10,
+              "depth": 2,
+              "tree": [
+                6,
+                4
+              ],
+              "name": "Freight Facilities",
+              "sections": []
+            }
+          ]
+        },
+        {
+          "id": "street-design-classification-descriptions",
+          "number": 5,
+          "depth": 1,
+          "tree": [
+            6
+          ],
+          "name": "Street Design Classification Descriptions",
+          "sections": [
+            {
+              "id": "civic-main-street",
+              "number": 1,
+              "depth": 2,
+              "tree": [
+                6,
+                5
+              ],
+              "name": "Civic Main Streets",
+              "sections": []
+            },
+            {
+              "id": "neighborhood-main-streets",
+              "number": 2,
+              "depth": 2,
+              "tree": [
+                6,
+                5
+              ],
+              "name": "Neighborhood Main Streets",
+              "sections": []
+            },
+            {
+              "id": "civic-corridor",
+              "number": 3,
+              "depth": 2,
+              "tree": [
+                6,
+                5
+              ],
+              "name": "Civic Corridors",
+              "sections": []
+            },
+            {
+              "id": "neighborhood-corridor",
+              "number": 4,
+              "depth": 2,
+              "tree": [
+                6,
+                5
+              ],
+              "name": "Neighborhood Corridors",
+              "sections": []
+            },
+            {
+              "id": "regional-corridor",
+              "number": 5,
+              "depth": 2,
+              "tree": [
+                6,
+                5
+              ],
+              "name": "Regional Corridors",
+              "sections": []
+            },
+            {
+              "id": "community-corridor",
+              "number": 6,
+              "depth": 2,
+              "tree": [
+                6,
+                5
+              ],
+              "name": "Community Corridors",
+              "sections": []
+            },
+            {
+              "id": "urban-throughway",
+              "number": 6,
+              "depth": 2,
+              "tree": [
+                6,
+                5
+              ],
+              "name": "Urban Throughways",
+              "sections": []
+            },
+            {
+              "id": "industrial-road",
+              "number": 7,
+              "depth": 2,
+              "tree": [
+                6,
+                5
+              ],
+              "name": "Industrial Roads",
+              "sections": []
+            },
+            {
+              "id": "enhanced-greenway-corridor",
+              "number": 8,
+              "depth": 2,
+              "tree": [
+                6,
+                5
+              ],
+              "name": "Enhanced Greenway Corridors",
+              "sections": []
+            },
+            {
+              "id": "greenscape-street",
+              "number": 9,
+              "depth": 2,
+              "tree": [
+                6,
+                5
+              ],
+              "name": "Greenscape Streets",
+              "sections": []
+            },
+            {
+              "id": "local-street",
+              "number": 10,
+              "depth": 2,
+              "tree": [
+                6,
+                5
+              ],
+              "name": "Local Streets",
+              "sections": []
+            }
+          ]
+        },
+        {
+          "id": "emergency-response-classification-descriptions",
+          "number": 6,
+          "depth": 1,
+          "tree": [
+            6
+          ],
+          "name": "Emergency Response Classification Descriptions",
+          "sections": [
+            {
+              "id": "major-emergency-response-street",
+              "number": 1,
+              "depth": 2,
+              "tree": [
+                6,
+                6
+              ],
+              "name": "Major Emergency Response Streets",
+              "sections": []
+            },
+            {
+              "id": "secondary-emergency-response-street",
+              "number": 2,
+              "depth": 2,
+              "tree": [
+                6,
+                6
+              ],
+              "name": "Secondary Emergency Response Streets",
+              "sections": []
+            },
+            {
+              "id": "minor-emergeny-response-street",
+              "number": 3,
+              "depth": 2,
+              "tree": [
+                6,
+                6
+              ],
+              "name": "Minor Emergency Response Streets",
+              "sections": []
+            }
+          ]
+        },
+        {
+          "id": "traffic-classification-descriptions",
+          "number": 7,
+          "depth": 1,
+          "tree": [
+            6
+          ],
+          "name": "Traffic Classification Descriptions",
+          "sections": [
+            {
+              "id": "regional-trafficway",
+              "number": 1,
+              "depth": 2,
+              "tree": [
+                6,
+                7
+              ],
+              "name": "Regional Trafficways",
+              "sections": []
+            },
+            {
+              "id": "major-city-traffic-street",
+              "number": 2,
+              "depth": 2,
+              "tree": [
+                6,
+                7
+              ],
+              "name": "Major City Traffic Streets",
+              "sections": []
+            },
+            {
+              "id": "traffic-access-street",
+              "number": 3,
+              "depth": 2,
+              "tree": [
+                6,
+                7
+              ],
+              "name": "Traffic Access Streets",
+              "sections": []
+            },
+            {
+              "id": "district-collector",
+              "number": 4,
+              "depth": 2,
+              "tree": [
+                6,
+                7
+              ],
+              "name": "District Collectors",
+              "sections": []
+            },
+            {
+              "id": "neighborhood-collector",
+              "number": 5,
+              "depth": 2,
+              "tree": [
+                6,
+                7
+              ],
+              "name": "Neighborhood Collectors",
+              "sections": []
+            },
+            {
+              "id": "local-service-traffic-street",
+              "number": 6,
+              "depth": 2,
+              "tree": [
+                6,
+                7
+              ],
+              "name": "Local Service Traffic Streets",
+              "sections": []
+            }
+          ]
         }
       ]
+    },
+    {
+      "id": "master-street-plans",
+      "number": 7,
+      "depth": 0,
+      "tree": [],
+      "name": "Master Street Plans",
+      "sections": []
+    },
+    {
+      "id": "modal-plans",
+      "number": 8,
+      "depth": 0,
+      "tree": [],
+      "name": "Modal Plans",
+      "sections": []
+    },
+    {
+      "id": "glossay",
+      "number": 10,
+      "depth": 0,
+      "tree": [],
+      "name": "Glossary",
+      "sections": []
     }
   ]
 }
