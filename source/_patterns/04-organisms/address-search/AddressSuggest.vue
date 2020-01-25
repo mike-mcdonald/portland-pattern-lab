@@ -14,8 +14,10 @@
           v-model="search"
           name="addressInput"
           type="search"
+          role="searchbox"
           placeholder="Enter an address to search"
           required="required"
+          aria-controls="address-suggest-results"
           class="w-full px-3 py-2 md:border-b lg:border-0 rounded-l md:rounded-l-0 lg:rounded-l bg-fog-200"
         />
         <section class="flex flex-row-reverse ml-auto">
@@ -37,25 +39,39 @@
           </transition>
         </section>
       </form>
-      <div class="-mt-1 pt-1">
-        <div v-for="candidate in candidates" :key="candidate.id" class="w-full border-b border-l border-r">
-          <div role="button" href="#" class="p-2 cursor-pointer hover:bg-blue-100" @click="handleClick(candidate)">
-            <span
-              v-if="candidate.type"
-              class="mx-2 px-2 rounded-full bg-blue-500 text-white text-xs font-bold uppercase"
-            >
-              {{ candidate.type }}
-            </span>
-            <div class="mx-2 text-sm">
-              {{ candidate.name }}
-            </div>
-            <div class="flex flex-1 items-center mx-2 text-xs font-bold uppercase">
-              <span v-if="candidate.city" class="">{{ candidate.city }},</span>
-              <span class="">{{ candidate.state }}</span>
-            </div>
+      <ul
+        id="address-suggest-results"
+        role="listbox"
+        class="list-none m-0 p-0 -mt-1 pt-1"
+      >
+        <li
+          v-for="(candidate, index) in candidates"
+          :key="candidate.id"
+          :id="`address-suggest-result-${index}`"
+          role="option"
+          tabindex="0"
+          class="p-2 w-full border-b border-l border-r hover:bg-blue-100 cursor-pointer"
+          @click="selectCandidate(candidate)"
+          @keyup.enter="selectCandidate(candidate)"
+          @keyup.space="selectCandidate(candidate)"
+        >
+          <span
+            v-if="candidate.type"
+            class="mx-2 px-2 rounded-full bg-blue-500 text-white text-xs font-bold uppercase"
+          >
+            {{ candidate.type }}
+          </span>
+          <div class="mx-2 text-sm">
+            {{ candidate.name }}
           </div>
-        </div>
-      </div>
+          <div
+            class="flex flex-1 items-center mx-2 text-xs font-bold uppercase"
+          >
+            <span v-if="candidate.city" class="">{{ candidate.city }},</span>
+            <span class="">{{ candidate.state }}</span>
+          </div>
+        </li>
+      </ul>
     </div>
   </section>
 </template>
@@ -63,10 +79,6 @@
 import axios from 'axios';
 import Vue from 'vue';
 import { mapState, mapActions } from 'vuex';
-
-import Graphic from 'esri/Graphic';
-import GraphicsLayer from 'esri/layers/GraphicsLayer';
-import { Point, Polyline } from 'esri/geometry';
 
 import Search from '../../01-atoms/04-images/Search.vue';
 import X from '../../01-atoms/04-images/X.vue';
@@ -89,7 +101,7 @@ export default Vue.extend({
   },
   methods: {
     ...mapActions('portlandmaps', ['clearCandidates', 'findCandidates']),
-    handleClick(candidate: any) {
+    selectCandidate(candidate: any) {
       this.$emit('candidate-select', candidate);
       this.clearCandidates();
     }
